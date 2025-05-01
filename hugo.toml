@@ -29,10 +29,10 @@ theme = "PaperMod"
   [[menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/posts/"
+    url = "https://jhead-blog.vercel.app/posts/"
     weight = 1
   [[menu.main]]
     identifier = "projects"
     name = "Projects"
-    url = "/projects/"
+    url = "https://jhead-blog.vercel.app/projects/"
     weight = 2
