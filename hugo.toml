@@ -23,7 +23,11 @@ theme = "PaperMod"
 
 [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/jaredhead"
+  url = "https://github.com/jaredcoderman"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/jared-c-head/"
 
 [menu]
   [[menu.main]]
