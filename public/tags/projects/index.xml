@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on jhead.blog</title>
+    <link>http://localhost:1313/tags/projects/</link>
+    <description>Recent content in Projects on jhead.blog</description>
+    <generator>Hugo -- 0.147.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple IDS: A File Event Monitor with Suspicious Activity Detection</title>
+      <link>http://localhost:1313/projects/ids/</link>
+      <pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/ids/</guid>
+      <description>A lightweight intrusion detection system that monitors file changes across directories and flags suspicious behavior. Built in Python, integrated with Splunk.</description>
+    </item>
+  </channel>
+</rss>

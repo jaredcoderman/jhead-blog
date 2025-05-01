@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <main class="main">
+    <div class="post-content">
+      <h1>Projects</h1>
+    </div>
+
+    <section class="post-card-grid">
+      {{ range .Pages }}
+        <article class="post-card">
+          <a href="{{ .RelPermalink }}">
+            <header class="entry-header">
+              <h2 class="entry-title">{{ .Title }}</h2>
+            </header>
+            <section class="entry-content">
+              <p>{{ .Params.summary | default .Summary }}</p>
+            </section>
+            <footer class="entry-footer">
+              <span class="entry-date">{{ .Date.Format "2006-01-02" }}</span>
+            </footer>
+          </a>
+        </article>
+      {{ end }}
+    </section>
+  </main>
+{{ end }}

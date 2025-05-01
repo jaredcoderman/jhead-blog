@@ -1,0 +1,38 @@
+baseURL = "https://jhead.blog/"
+languageCode = "en-us"
+title = "jhead.blog"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+
+[params]
+  author = "Jared Head"
+  description = "Cybersecurity writeups, notes, and research"
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowPostNavLinks = true
+  defaultTheme = "dark"
+  DateFormat = "2006-01-02"
+
+[params.homeInfoParams]
+  Title = "Hi, I'm Jared"
+  Content = "Welcome to **jhead.blog** — a place for cybersecurity writeups, notes, and research logs."
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/jaredhead"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
