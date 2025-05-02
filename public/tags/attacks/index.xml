@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Attacks on jhead.blog</title>
+    <link>http://localhost:1313/tags/attacks/</link>
+    <description>Recent content in Attacks on jhead.blog</description>
+    <generator>Hugo -- 0.147.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/attacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Living Off the Land Attack</title>
+      <link>http://localhost:1313/posts/living-off-the-land-attack/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/living-off-the-land-attack/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
