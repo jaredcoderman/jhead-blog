@@ -9,11 +9,13 @@
     <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/attacks/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Living Off the Land Attack</title>
+      <title>Living off the Land Attacks</title>
       <link>http://localhost:1313/posts/living-off-the-land-attack/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/living-off-the-land-attack/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;a-brief-history&#34;&gt;A Brief History&lt;/h2&gt;
+&lt;p&gt;As cyber defenses evolved beyond file-based malware, hackers and red teamers had to develop new strategies for maintaining unauthorized access to systems. While they still needed some kind of initial foothold—through things like phishing links, stolen remote desktop credentials, or other methods—once inside, maintaining access became a challenge. Antivirus software was getting stronger, and simply dropping suspicious binaries was no longer effective.&lt;/p&gt;
+&lt;p&gt;To adapt, some hackers in the 2010s developed what is now known as a &lt;strong&gt;Living off the Land&lt;/strong&gt; (LotL) attack. This type of attack uses already trusted system tools like PowerShell, WMI, or certutil to run malicious commands, download payloads, or exfiltrate data—often without writing anything to disk. It’s hard to detect because the behavior doesn’t originate from some unknown file or process like traditional malware—it comes from legitimate processes that the system is likely already using, allowing it to blend into the background.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Attack on jhead.blog</title>
+    <link>http://localhost:1313/tags/attack/</link>
+    <description>Recent content in Attack on jhead.blog</description>
+    <generator>Hugo -- 0.147.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/attack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lateral Movement</title>
+      <link>http://localhost:1313/posts/lateral-movement/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lateral-movement/</guid>
+      <description>&lt;p&gt;Once a hacker has gained access to a system through their path of choice, the next usual step is to try and gain access to other&amp;mdash;usually more high-profile machines&amp;mdash;on the network. This process is known as &amp;ldquo;Lateral Movement&amp;rdquo; and it can be done in a variety of different ways. To be more specific about &lt;em&gt;why&lt;/em&gt; hackers do this, let&amp;rsquo;s talk about the advantages of gaining access to other machines.&lt;/p&gt;
+&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Gain access to more privileged account&lt;/li&gt;
+&lt;li&gt;Reach valuable data (like on a file server)&lt;/li&gt;
+&lt;li&gt;Spread persistence across the network (creating re-entry points or backdoors)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Having skill in lateral movement is arguably one of the most important things for a hacker. It is their ability to &lt;em&gt;move&lt;/em&gt; through the environment once they get in and must be done with precision and (word for sneakyt here). It is a place where a lot of hackers get caught because they can leave many breadcrumbs along the way (is this true?). Sometimes they will just get into a system and start monitoring common processes and behaviors for while. This is to try to build a plan about how best they can navigate the network undetected. Usually using techniques like LotL(how to link to my other post here) as I have previously written about.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
