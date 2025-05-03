@@ -51,22 +51,27 @@ These are the kinds of patterns Sentinel is built to surface.
 Here’s the loop that drives the real-time monitoring:
 
 ```go
-for {
-    procs, parentMap, err := processmanager.GetProcesses()
-    if err != nil {
-        log.Fatal(err)
-    }
+func CheckProcesses() error {
+	fmt.Println("Checking Processes...")
 
-    for _, p := range procs {
-        processChain, err := processmanager.BuildProcessChain(p, parentMap)
-        if err != nil {
-            log.Printf("error building process chain for PID %d: %v", p.Pid, err)
-            continue
-        }
-        fmt.Println(processChain)
-    }
+	procs, parentMap, err := GetProcesses()
+	if err != nil {
+		return err
+	}
 
-    time.Sleep(2 * time.Second)
+	for _, p := range procs {
+		chain, err := BuildProcessChain(p, parentMap)
+		if err != nil {
+			log.Printf("error building chain for PID %d: %v", p.Pid, err)
+			continue
+		}
+
+		if isSuspicious, severity := chaindetector.CheckChain(chain); isSuspicious {
+			fmt.Println("SUSPICIOUS CHAIN: ", chain, " SEVERITY: ", severity)
+		}
+
+	}
+	return nil
 }
 ```
 
