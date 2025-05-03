@@ -6,8 +6,29 @@
     <description>Recent content in Tags on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go</title>
+      <link>http://localhost:1313/tags/go/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/go/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Process Monitoring</title>
+      <link>http://localhost:1313/tags/process-monitoring/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/process-monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Threat Detection</title>
+      <link>http://localhost:1313/tags/threat-detection/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/threat-detection/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Attacks</title>
       <link>http://localhost:1313/tags/attacks/</link>
@@ -23,13 +44,6 @@
       <description></description>
     </item>
     <item>
-      <title>Go</title>
-      <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/go/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Malware</title>
       <link>http://localhost:1313/tags/malware/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
@@ -37,24 +51,10 @@
       <description></description>
     </item>
     <item>
-      <title>Process Monitoring</title>
-      <link>http://localhost:1313/tags/process-monitoring/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/process-monitoring/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Strategy</title>
       <link>http://localhost:1313/tags/strategy/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/strategy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Threat Detection</title>
-      <link>http://localhost:1313/tags/threat-detection/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/threat-detection/</guid>
       <description></description>
     </item>
     <item>

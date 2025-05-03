@@ -16,6 +16,8 @@ theme = "PaperMod"
   ShowPostNavLinks = true
   defaultTheme = "dark"
   DateFormat = "2006-01-02"
+  mainSections = ["posts"]
+  SectionPagesMenu = ""
 
 [params.homeInfoParams]
   Title = "Hi, I'm Jared"

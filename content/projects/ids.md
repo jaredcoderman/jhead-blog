@@ -4,6 +4,7 @@ date: 2025-05-01
 tags: ["python", "splunk", "file monitoring"]
 summary: "A Python-based intrusion detection system that monitors file events and forwards logs to Splunk."
 ---
+![Last Commit](https://img.shields.io/github/last-commit/jaredcoderman/Simple-IDS)
 
 This project is a lightweight intrusion detection system (IDS) written in Python. It monitors directories for file events and logs any suspicious activity. The goal is to provide a simple, extensible foundation for learning how host-based detection works.
 

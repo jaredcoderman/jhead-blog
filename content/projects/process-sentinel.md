@@ -4,6 +4,7 @@ date: 2025-05-03
 tags: ["go", "process monitoring", "threat detection"]
 summary: "A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships."
 ---
+![Last Commit](https://img.shields.io/github/last-commit/jaredcoderman/process-sentinel)
 
 `Process Sentinel` is a real-time process monitoring tool written in Go. It scans active processes on the system, builds their parent-child execution chains, and checks them for suspicious behavior patterns. It’s meant to serve as a lightweight utility for understanding how malicious process chains form and how they can be detected with simple rules.
 
