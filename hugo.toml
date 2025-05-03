@@ -21,7 +21,7 @@ theme = "PaperMod"
 
 [params.homeInfoParams]
   Title = "Hi, I'm Jared"
-  Content = "Welcome to **jhead.blog** — a place for cybersecurity writeups, notes, and research logs."
+  Content = "Welcome to **jhead.blog** — a place for cybersecurity writeups, notes, and projects."
 
 [[params.socialIcons]]
   name = "github"
