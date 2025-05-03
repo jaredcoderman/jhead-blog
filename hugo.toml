@@ -1,4 +1,4 @@
-baseURL = "https://jhead-blog.vercel.app/"
+baseURL = "https://jhead.blog/"
 languageCode = "en-us"
 title = "jhead.blog"
 theme = "PaperMod"
