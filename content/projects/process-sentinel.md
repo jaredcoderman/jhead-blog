@@ -1,6 +1,6 @@
 ---
 title: "Process Sentinel (WIP)"
-date: 2025-05-02
+date: 2025-05-03
 tags: ["go", "process monitoring", "threat detection"]
 summary: "A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships."
 ---
@@ -9,10 +9,11 @@ summary: "A Go-based tool that monitors live process trees and flags suspicious 
 
 ### Key Features
 
-- Scans all running processes using [`gopsutil`](https://github.com/shirou/gopsutil)
+- Scans all running processes using [gopsutil](https://github.com/shirou/gopsutil)
 - Reconstructs parent-child chains for each process
 - Filters out trivial repetitions and focuses on meaningful lineage
 - Checks each process chain against a user-defined rule system for anomalies
+- Sends suspicious detections to Splunk via HEC
 - Modular design: `processmanager` handles process traversal, `chaindetector` handles logic
 
 ### Why I Built It
@@ -27,8 +28,6 @@ On a clean system, a normal chain might look like:
 ```bash
 ["explorer.exe", "cmd.exe"]
 ```
-
-
 These are the kinds of patterns Sentinel is built to surface.
 
 ### Tech Stack
@@ -38,42 +37,22 @@ These are the kinds of patterns Sentinel is built to surface.
 - Modular packages:
   - `processmanager`: fetches and builds chains
   - `chaindetector`: scores and flags suspicious chains
+  - `splunklogger`: logs confirmed anomalies to Splunk
 - Unit tests included for core modules
 
 ### Future Improvements
 
 - Integrate YARA for memory-based rules
-- Writing logs to Splunk
 - Add persistence across scans to correlate behavior over time
 
 ### Code Highlights
 
-Here’s the loop that drives the real-time monitoring:
+**chaindetector.CheckChain(chain []string)**  
+Evaluates a given process chain against hardcoded suspicious patterns, returning a boolean and severity level if a match is found.
 
-```go
-func CheckProcesses() error {
-	fmt.Println("Checking Processes...")
+**splunklogger.SendToSplunk(data map[string]interface{})**  
+Formats and sends structured detection events to a local Splunk instance via the HTTP Event Collector.
 
-	procs, parentMap, err := GetProcesses()
-	if err != nil {
-		return err
-	}
+### Source Code
 
-	for _, p := range procs {
-		chain, err := BuildProcessChain(p, parentMap)
-		if err != nil {
-			log.Printf("error building chain for PID %d: %v", p.Pid, err)
-			continue
-		}
-
-		if isSuspicious, severity := chaindetector.CheckChain(chain); isSuspicious {
-			fmt.Println("SUSPICIOUS CHAIN: ", chain, " SEVERITY: ", severity)
-		}
-
-	}
-	return nil
-}
-```
-
-Source Code
 [Repository](https://github.com/jaredcoderman/process-sentinel)
