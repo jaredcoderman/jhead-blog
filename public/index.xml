@@ -32,6 +32,13 @@
 &lt;p&gt;To adapt, some hackers in the 2010s developed what is now known as a &lt;strong&gt;Living off the Land&lt;/strong&gt; (LotL) attack. This type of attack uses already trusted system tools like PowerShell, WMI, or certutil to run malicious commands, download payloads, or exfiltrate data—often without writing anything to disk. It’s hard to detect because the behavior doesn’t originate from some unknown file or process like traditional malware—it comes from legitimate processes that the system is likely already using, allowing it to blend into the background.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Process Sentinel (WIP)</title>
+      <link>http://localhost:1313/projects/process-sentinel/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/process-sentinel/</guid>
+      <description>A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships.</description>
+    </item>
+    <item>
       <title>Simple IDS</title>
       <link>http://localhost:1313/projects/ids/</link>
       <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>

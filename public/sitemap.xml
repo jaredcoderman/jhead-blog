@@ -8,6 +8,9 @@
     <loc>http://localhost:1313/tags/cybersecurity/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/go/</loc>
+    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -23,19 +26,28 @@
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/process-monitoring/</loc>
+    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/process-sentinel/</loc>
+    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/strategy/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/threat-detection/</loc>
+    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/artificial-intelligence/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/file-monitoring/</loc>
-    <lastmod>2025-05-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/projects/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/python/</loc>

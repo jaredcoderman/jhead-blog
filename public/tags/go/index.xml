@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Projects on jhead.blog</title>
-    <link>http://localhost:1313/projects/</link>
-    <description>Recent content in Projects on jhead.blog</description>
+    <title>Go on jhead.blog</title>
+    <link>http://localhost:1313/tags/go/</link>
+    <description>Recent content in Go on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Process Sentinel (WIP)</title>
+      <title>Process Sentinel</title>
       <link>http://localhost:1313/projects/process-sentinel/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/process-sentinel/</guid>
       <description>A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships.</description>
-    </item>
-    <item>
-      <title>Simple IDS</title>
-      <link>http://localhost:1313/projects/ids/</link>
-      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/ids/</guid>
-      <description>A Python-based intrusion detection system that monitors file events and forwards logs to Splunk.</description>
     </item>
   </channel>
 </rss>
