@@ -2,10 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/go/</loc>
-    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/cybersecurity/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/initial-access/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/initial-access/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mitre/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/phishing/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/go/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/process-monitoring/</loc>
@@ -17,9 +38,6 @@
     <loc>http://localhost:1313/projects/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/threat-detection/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -29,9 +47,6 @@
     <loc>http://localhost:1313/tags/attacks/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cybersecurity/</loc>
-    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/lateral-movement/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -39,9 +54,6 @@
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/malware/</loc>
-    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/strategy/</loc>
