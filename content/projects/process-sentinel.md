@@ -1,8 +1,8 @@
 ---
 title: "Process Sentinel (WIP)"
 date: 2025-05-03
-tags: ["go", "process monitoring", "threat detection"]
-summary: "A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships."
+tags: ["go", "process monitoring", "threat detection", "YARA"]
+summary: "A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships and YARA rules."
 ---
 ![Last Commit](https://img.shields.io/github/last-commit/jaredcoderman/process-sentinel)
 
@@ -12,8 +12,8 @@ summary: "A Go-based tool that monitors live process trees and flags suspicious 
 
 - Scans all running processes using [gopsutil](https://github.com/shirou/gopsutil)
 - Reconstructs parent-child chains for each process
-- Filters out trivial repetitions and focuses on meaningful lineage
-- Checks each process chain against a user-defined rule system for anomalies
+- Checks processes for suspicious chains
+- Uses YARA rules to see if the the last file in a chain is malicious
 - Sends suspicious detections to Splunk via HEC
 - Modular design: `processmanager` handles process traversal, `chaindetector` handles logic
 
@@ -39,12 +39,14 @@ These are the kinds of patterns Sentinel is built to surface.
   - `processmanager`: fetches and builds chains
   - `chaindetector`: scores and flags suspicious chains
   - `splunklogger`: logs confirmed anomalies to Splunk
+  - `yarascanner`: helper for scanning suspicious chains
 - Unit tests included for core modules
 
 ### Future Improvements
 
-- Integrate YARA for memory-based rules
 - Add persistence across scans to correlate behavior over time
+- More YARA rules
+- Real-time file-system monitoring to detect malware behavior
 
 ### Code Highlights
 
