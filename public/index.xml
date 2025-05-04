@@ -6,28 +6,28 @@
     <description>Recent content on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Initial Access: Spearphishing Example</title>
+      <link>http://localhost:1313/posts/initial-access/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/initial-access/</guid>
+      <description>&lt;p&gt;In the MITRE ATT&amp;amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Initial Access: Spearphishing Example</title>
+      <link>http://localhost:1313/posts/lateral-movement/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lateral-movement/</guid>
+      <description>&lt;p&gt;In the MITRE ATT&amp;amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Process Sentinel (WIP)</title>
       <link>http://localhost:1313/projects/process-sentinel/</link>
       <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/process-sentinel/</guid>
-      <description>A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships.</description>
-    </item>
-    <item>
-      <title>Lateral Movement</title>
-      <link>http://localhost:1313/posts/lateral-movement/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/lateral-movement/</guid>
-      <description>&lt;p&gt;Once a hacker has gained access to a system through their path of choice, the next usual step is to try and gain access to other—usually more high-profile machines on the network. This process is known as &lt;strong&gt;lateral movement&lt;/strong&gt;, and it can be done in a variety of ways. To be more specific about &lt;em&gt;why&lt;/em&gt; hackers do this, let’s talk about the advantages of gaining access to other machines.&lt;/p&gt;
-&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Gain access to more privileged accounts&lt;/li&gt;
-&lt;li&gt;Reach valuable data (like on a file server)&lt;/li&gt;
-&lt;li&gt;Spread persistence across the network (creating re-entry points or backdoors)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Having skill in lateral movement is arguably one of the most important things for a hacker. It’s their ability to &lt;em&gt;move&lt;/em&gt; through the environment once they get in, and it must be done with precision and stealth. It’s also where many attackers get caught, since they can leave plenty of breadcrumbs along the way.&lt;/p&gt;</description>
+      <description>A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships and YARA rules.</description>
     </item>
     <item>
       <title>Living off the Land Attacks</title>

