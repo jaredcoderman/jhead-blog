@@ -4,9 +4,9 @@ date: 2025-05-04
 tags: ["supply chain", "initial access", "cybersecurity", "MITRE"]
 ---
 
-On March 26, 2020, a hacker group identified by Microsoft as **Nobelium** launched what is widely considered the biggest supply chain hack of the 21st century. Known as the **SolarWinds Hack**, this event wasn’t significant because it affected a single company—it was significant because it compromised software used by thousands of organizations, including multiple U.S. federal agencies.
+On March 26, 2020, a hacker group identified by Microsoft as **Nobelium** launched what is widely considered the biggest supply chain hack of the 21st century. Known as the **SolarWinds Hack**, this event wasn’t significant because it affected a single company—it was significant because it compromised software used by thousands of organizations, including 6 U.S. federal agencies. The attackers accessed sensitive internal communications, email systems, and identity systems, potentially for months without detection.
 
-It wasn’t until December 2020—**nine months later**—that the hack was discovered and reported by FireEye and U.S. government agencies. During that time, the attackers had **uninterrupted access** to some of the most sensitive networks in the world.
+It wasn’t until December 2020—**nine months later**—that the hack was discovered and reported by FireEye and U.S. government agencies. During that time, the attackers had **uninterrupted access** to some of the most sensitive networks in the world. It is still not fully known what they saw, stole, or left behind.
 
 So how did this happen? How could critical infrastructure and tens of thousands of companies get compromised all at once?
 
