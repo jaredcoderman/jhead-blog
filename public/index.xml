@@ -16,6 +16,14 @@
       <description>&lt;p&gt;In the MITRE ATT&amp;amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>The Hack of the Decade: SolarWinds</title>
+      <link>http://localhost:1313/posts/solarwinds-hack/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/solarwinds-hack/</guid>
+      <description>&lt;p&gt;On March 26, 2020, a hacker group identified by Microsoft as &lt;strong&gt;Nobelium&lt;/strong&gt; launched what is widely considered the biggest supply chain hack of the 21st century. Known as the &lt;strong&gt;SolarWinds Hack&lt;/strong&gt;, this event wasn’t significant because it affected a single company—it was significant because it compromised software used by thousands of organizations, including multiple U.S. federal agencies.&lt;/p&gt;
+&lt;p&gt;It wasn’t until December 2020—&lt;strong&gt;nine months later&lt;/strong&gt;—that the hack was discovered and reported by FireEye and U.S. government agencies. During that time, the attackers had &lt;strong&gt;uninterrupted access&lt;/strong&gt; to some of the most sensitive networks in the world.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Process Sentinel (WIP)</title>
       <link>http://localhost:1313/projects/process-sentinel/</link>
       <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>

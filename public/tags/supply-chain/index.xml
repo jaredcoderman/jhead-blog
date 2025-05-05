@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Supply Chain on jhead.blog</title>
+    <link>http://localhost:1313/tags/supply-chain/</link>
+    <description>Recent content in Supply Chain on jhead.blog</description>
+    <generator>Hugo -- 0.147.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/supply-chain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Hack of the Decade: SolarWinds</title>
+      <link>http://localhost:1313/posts/solarwinds-hack/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/solarwinds-hack/</guid>
+      <description>&lt;p&gt;On March 26, 2020, a hacker group identified by Microsoft as &lt;strong&gt;Nobelium&lt;/strong&gt; launched what is widely considered the biggest supply chain hack of the 21st century. Known as the &lt;strong&gt;SolarWinds Hack&lt;/strong&gt;, this event wasn’t significant because it affected a single company—it was significant because it compromised software used by thousands of organizations, including multiple U.S. federal agencies.&lt;/p&gt;
+&lt;p&gt;It wasn’t until December 2020—&lt;strong&gt;nine months later&lt;/strong&gt;—that the hack was discovered and reported by FireEye and U.S. government agencies. During that time, the attackers had &lt;strong&gt;uninterrupted access&lt;/strong&gt; to some of the most sensitive networks in the world.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
