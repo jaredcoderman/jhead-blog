@@ -15,12 +15,5 @@
       <guid>http://localhost:1313/posts/initial-access/</guid>
       <description>&lt;p&gt;In the MITRE ATT&amp;amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>The hack of the decade: SolarWinds</title>
-      <link>http://localhost:1313/posts/solarwinds-hack/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/solarwinds-hack/</guid>
-      <description>&lt;p&gt;On March 26, 2020, a hacker group identified by Microsoft called Nobelium launched one of, if not, the biggest supply chain hack of the 21st century. What is known as the &lt;strong&gt;SolarWinds Hack&lt;/strong&gt; was a major event not because it affected a single company, but because it affected a software, SolarWinds, used by thousands of organizations including U.S. federal agencies. However, it was not until December of 2020 that this hack was revealed, nearly 9 months of uninterrupted espionage took place until FireEye and U.S. government agencies brought it to light. So how did this happen? How could some of our most important infrastructure and tens of thousands of companies get compromised?&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
