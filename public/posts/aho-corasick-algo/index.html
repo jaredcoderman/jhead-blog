@@ -107,7 +107,7 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
     <h1 class="post-title entry-hint-parent">
       Aho-Corasick Algorithm (WIP)
     </h1>
-    <div class="post-meta"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Jared Head
+    <div class="post-meta"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Jared Head
 
 </div>
   </header> 
@@ -134,8 +134,8 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
 <p>Enter the <strong>Aho-Corasick Algorithm</strong>. This came up while I was talking to ChatGPT about the problem, and I had to take a shot at understanding it. It took me a little while to fully understand, but I learned a lot about data structures along the way.</p>
 <h2 id="the-algorithm">The Algorithm<a hidden class="anchor" aria-hidden="true" href="#the-algorithm">#</a></h2>
 <p>The data structure it works with is called a <strong>Trie</strong>—a tree-like data structure that stores <strong>strings</strong>, typically to enable fast prefix-based lookups. Each node in a trie usually represents a single character, and a path from the root to a node usually represents a <strong>prefix</strong>. In my case, each node represents a <strong>process name</strong> (e.g., powershell.exe, mishta.exe), and the path from the root to a node is a <strong>suspicious chain</strong>—for example:</p>
-<p>powershell.exe -&gt; regsvr32.exe -&gt; cmd.exe</p>
-<h3 id="building-the-tree">Building the Tree<a hidden class="anchor" aria-hidden="true" href="#building-the-tree">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">powershell.exe -&gt; regsvr32.exe -&gt; cmd.exe
+</span></span></code></pre></div><h3 id="building-the-tree">Building the Tree<a hidden class="anchor" aria-hidden="true" href="#building-the-tree">#</a></h3>
 <p>For building the tree, we start by creating the type for our Trie nodes and then a function to insert the process names in each pattern into our tree as nodes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">TrieNode</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">children</span>   <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">TrieNode</span>
@@ -160,9 +160,41 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
 </span></span></code></pre></div><p>For clarity, we are using a <code>map[string]*TrieNode</code> because the string will represent the process name, which will be used to access that process’s node via a pointer. We then just make a <strong>root node</strong>, and for each pattern call insert(root, pattern).</p>
 <p>Next comes the real sauce of the algorithm.</p>
 <h3 id="failure-links">Failure Links<a hidden class="anchor" aria-hidden="true" href="#failure-links">#</a></h3>
-<p>The beauty of the Aho-Corasick algorithm lies in each node having a <strong>failure link</strong>. These serve two main purposes. First, they make it so we don&rsquo;t have to start over if some node in the tree doesn&rsquo;t see the <strong>next</strong> process in the input. Instead of starting over, we get to jump to another node somewhere else in our trie with the same name, to see if <em>that</em> node has the next process in the input. It serves as a sort of smart backtracking approach. This is what makes it one of the most powerful string-matching algorithms out there. It&rsquo;s why tools like antivirus scanners, spam filters, and log monitors use it. It was not intuitive for me at first, but once understood the elegance is clear.</p>
-<p>So let&rsquo;s go over the implementation of these failure links.</p>
-
+<p>The beauty of the Aho-Corasick algorithm lies in each node having a <strong>failure link</strong>. These serve two main purposes. First, they make it so we don&rsquo;t have to start over if some node in the tree doesn&rsquo;t see the <strong>next</strong> process in the input. Instead of starting over, we get to jump to another node somewhere else in our trie with the same name, to see if <em>that</em> node has the next process in the input. It serves as a sort of smart backtracking approach. This is what makes it one of the most powerful string-matching algorithms out there. It&rsquo;s why tools like antivirus scanners, spam filters, and log monitors use it.</p>
+<p>So let&rsquo;s go over the implementation of these failure links:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">buildFailureLinks</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TrieNode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">queue</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">TrieNode</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">child</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">root</span><span class="p">.</span><span class="nx">children</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">child</span><span class="p">.</span><span class="nx">fail</span> <span class="p">=</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">queue</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">queue</span><span class="p">,</span> <span class="nx">child</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nb">len</span><span class="p">(</span><span class="nx">queue</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">current</span> <span class="o">:=</span> <span class="nx">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">queue</span> <span class="p">=</span> <span class="nx">queue</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">process</span><span class="p">,</span> <span class="nx">child</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">root</span><span class="p">.</span><span class="nx">children</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fallback</span> <span class="o">:=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">fail</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">fallback</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">fallback</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">process</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">fallback</span> <span class="p">=</span> <span class="nx">fallback</span><span class="p">.</span><span class="nx">fail</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">fallback</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">child</span><span class="p">.</span><span class="nx">fail</span> <span class="p">=</span> <span class="nx">fallback</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">process</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">child</span><span class="p">.</span><span class="nx">fail</span> <span class="p">=</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">child</span><span class="p">.</span><span class="nx">fail</span><span class="p">.</span><span class="nx">isTerminal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">child</span><span class="p">.</span><span class="nx">patterns</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">child</span><span class="p">.</span><span class="nx">patterns</span><span class="p">,</span> <span class="nx">child</span><span class="p">.</span><span class="nx">fail</span><span class="p">.</span><span class="nx">patterns</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">queue</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">queue</span><span class="p">,</span> <span class="nx">child</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
 
   </div>
 

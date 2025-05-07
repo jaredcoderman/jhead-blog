@@ -35,7 +35,9 @@ Enter the **Aho-Corasick Algorithm**. This came up while I was talking to ChatGP
 
 The data structure it works with is called a **Trie**—a tree-like data structure that stores **strings**, typically to enable fast prefix-based lookups. Each node in a trie usually represents a single character, and a path from the root to a node usually represents a **prefix**. In my case, each node represents a **process name** (e.g., powershell.exe, mishta.exe), and the path from the root to a node is a **suspicious chain**—for example:
 
+```bash
 powershell.exe -> regsvr32.exe -> cmd.exe
+```
 
 ### Building the Tree
 
