@@ -68,6 +68,42 @@ Next comes the real sauce of the algorithm.
 
 ### Failure Links
 
-The beauty of the Aho-Corasick algorithm lies in each node having a **failure link**. These serve two main purposes. First, they make it so we don't have to start over if some node in the tree doesn't see the **next** process in the input. Instead of starting over, we get to jump to another node somewhere else in our trie with the same name, to see if *that* node has the next process in the input. It serves as a sort of smart backtracking approach. This is what makes it one of the most powerful string-matching algorithms out there. It's why tools like antivirus scanners, spam filters, and log monitors use it. It was not intuitive for me at first, but once understood the elegance is clear.
+The beauty of the Aho-Corasick algorithm lies in each node having a **failure link**. These serve two main purposes. First, they make it so we don't have to start over if some node in the tree doesn't see the **next** process in the input. Instead of starting over, we get to jump to another node somewhere else in our trie with the same name, to see if *that* node has the next process in the input. It serves as a sort of smart backtracking approach. This is what makes it one of the most powerful string-matching algorithms out there. It's why tools like antivirus scanners, spam filters, and log monitors use it.
 
-So let's go over the implementation of these failure links.
+So let's go over the implementation of these failure links:
+
+```go
+func buildFailureLinks(root *TrieNode) {
+	queue := []*TrieNode{}
+
+	for _, child := range root.children {
+		child.fail = root
+		queue = append(queue, child)
+	}
+
+	for len(queue) > 0 {
+		current := queue[0]
+		queue = queue[1:]
+
+		for process, child := range root.children {
+			fallback := current.fail
+			for fallback != nil && fallback.children[process] == nil {
+				fallback = fallback.fail
+			}
+
+			if fallback != nil {
+				child.fail = fallback.children[process]
+			} else {
+				child.fail = root
+			}
+
+			if child.fail.isTerminal {
+				child.patterns = append(child.patterns, child.fail.patterns...)
+			}
+
+			queue = append(queue, child)
+		}
+	}
+}
+```
+
