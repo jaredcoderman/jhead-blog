@@ -4,7 +4,7 @@ date: 2025-05-06
 tags: ["data structures", "algorithms"]
 ---
 
-When building my project Process Sentinel (LINK HERE) I came across what I thought was an opportunity for optimization. The problem was essentially I have a list of **chains** which represent process parent-child relationships. I would compare these chains against a set of **suspicious chains** which would then report back if a process chain was suspicious and the severity of it. Initially I took a sort of naive approach:
+When building my project [Process Sentinel](../../projects/process-sentinel) I came across what I thought was an opportunity for optimization. The problem was essentially I have a list of **chains** which represent process parent-child relationships. I would compare these chains against a set of **suspicious chains** which would then report back if a process chain was suspicious and the severity of it. Initially I took a sort of naive approach:
 ```go
 func containsExactPattern(chain []string, pattern []string) bool {
 	if len(chain) < len(pattern) {
@@ -25,7 +25,9 @@ func containsExactPattern(chain []string, pattern []string) bool {
 	return false
 }
 ```
-Here I am just doing a simple sliding window that compares a **pattern**--a given **suspicious chain**--against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering. I was curious if there was a better way to do this if I had a very large amount of **patterns** to check against a given chain. Enter the **Aho-Corasick Algorithm**, it sounds so cool and advanced I had to take a shot at understanding it. It took me a little while to understand but I learned a lot about data structures along the way.
+Here I am just doing a simple sliding window that compares a **pattern**--a given **suspicious chain**--against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering. I was curious if there was a better way to do this if I had a very large amount of **patterns** to check against a given chain. 
+
+Enter the **Aho-Corasick Algorithm**. This came up while I was talking to ChatGPT about the problem and I had to take a shot at understanding it. It took me a little while to fully understand, but I learned a lot about data structures along the way.
 
 ## The Algorithm
 
