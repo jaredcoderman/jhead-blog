@@ -42,3 +42,8 @@ theme = "PaperMod"
     name = "Projects"
     url = "/projects/"
     weight = 2
+
+[markup]
+  [markup.highlight]
+    noClasses = false  # Required for custom themes
+    style = "dracula"  # or "monokai", "github-dark", etc.

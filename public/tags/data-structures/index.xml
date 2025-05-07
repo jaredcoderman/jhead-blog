@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>jhead.blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on jhead.blog</description>
+    <title>Data Structures on jhead.blog</title>
+    <link>http://localhost:1313/tags/data-structures/</link>
+    <description>Recent content in Data Structures on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aho-Corasick Algorithm (WIP)</title>
       <link>http://localhost:1313/posts/aho-corasick-algo/</link>
@@ -33,65 +33,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here I am just doing a simple sliding window that compares a &lt;strong&gt;pattern&lt;/strong&gt;&amp;ndash;a given &lt;strong&gt;suspicious chain&lt;/strong&gt;&amp;ndash;against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering. I was curious if there was a better way to do this if I had a very large amount of &lt;strong&gt;patterns&lt;/strong&gt; to check against a given chain. Enter the &lt;strong&gt;Aho-Corasick Algorithm&lt;/strong&gt;, it sounds so cool and advanced I had to take a shot at understanding it. It took me a little while to understand but I learned a lot about data structures along the way.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Initial Access: Spearphishing Example</title>
-      <link>http://localhost:1313/posts/initial-access/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/initial-access/</guid>
-      <description>&lt;p&gt;In the MITRE ATT&amp;amp;CK Framework, which classifies and creates chains of events for certain kinds of hacker behavior, Initial Access is one of the first tactics used in an attack. It’s sort of self-explanatory—it describes how the attacker first got into a system. I’m just learning about these concepts, so I wanted to start from the beginning. I’m interested in a few techniques, and I’ll go over them in my next few posts.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The Hack of the Decade: SolarWinds</title>
-      <link>http://localhost:1313/posts/solarwinds-hack/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/solarwinds-hack/</guid>
-      <description>&lt;p&gt;On March 26, 2020, a hacker group identified by Microsoft as &lt;strong&gt;Nobelium&lt;/strong&gt; launched what is widely considered the biggest supply chain hack of the 21st century. Known as the &lt;strong&gt;SolarWinds Hack&lt;/strong&gt;, this event wasn’t significant because it affected a single company—it was significant because it compromised software used by thousands of organizations, including 6 U.S. federal agencies. The attackers accessed sensitive internal communications, email systems, and identity systems, potentially for months without detection.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Process Sentinel (WIP)</title>
-      <link>http://localhost:1313/projects/process-sentinel/</link>
-      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/process-sentinel/</guid>
-      <description>A Go-based tool that monitors live process trees and flags suspicious chains based on parent-child relationships and YARA rules.</description>
-    </item>
-    <item>
-      <title>Lateral Movement</title>
-      <link>http://localhost:1313/posts/lateral-movement/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/lateral-movement/</guid>
-      <description>&lt;p&gt;Once a hacker has gained access to a system through their path of choice, the next usual step is to try and gain access to other—usually more high-profile machines on the network. This process is known as &lt;strong&gt;lateral movement&lt;/strong&gt;, and it can be done in a variety of ways. To be more specific about &lt;em&gt;why&lt;/em&gt; hackers do this, let’s talk about the advantages of gaining access to other machines.&lt;/p&gt;
-&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Gain access to more privileged accounts&lt;/li&gt;
-&lt;li&gt;Reach valuable data (like on a file server)&lt;/li&gt;
-&lt;li&gt;Spread persistence across the network (creating re-entry points or backdoors)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Having skill in lateral movement is arguably one of the most important things for a hacker. It’s their ability to &lt;em&gt;move&lt;/em&gt; through the environment once they get in, and it must be done with precision and stealth. It’s also where many attackers get caught, since they can leave plenty of breadcrumbs along the way.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Living off the Land Attacks</title>
-      <link>http://localhost:1313/posts/living-off-the-land-attack/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/living-off-the-land-attack/</guid>
-      <description>&lt;h2 id=&#34;a-brief-history&#34;&gt;A Brief History&lt;/h2&gt;
-&lt;p&gt;As cyber defenses evolved beyond file-based malware, hackers and red teamers had to develop new strategies for maintaining unauthorized access to systems. While they still needed some kind of initial foothold—through things like phishing links, stolen remote desktop credentials, or other methods—once inside, maintaining access became a challenge. Antivirus software was getting stronger, and simply dropping suspicious binaries was no longer effective.&lt;/p&gt;
-&lt;p&gt;To adapt, some hackers in the 2010s developed what is now known as a &lt;strong&gt;Living off the Land&lt;/strong&gt; (LotL) attack. This type of attack uses already trusted system tools like PowerShell, WMI, or certutil to run malicious commands, download payloads, or exfiltrate data—often without writing anything to disk. It’s hard to detect because the behavior doesn’t originate from some unknown file or process like traditional malware—it comes from legitimate processes that the system is likely already using, allowing it to blend into the background.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Simple IDS</title>
-      <link>http://localhost:1313/projects/ids/</link>
-      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/ids/</guid>
-      <description>A Python-based intrusion detection system that monitors file events and forwards logs to Splunk.</description>
-    </item>
-    <item>
-      <title>The State of ML in Cybersecurity</title>
-      <link>http://localhost:1313/posts/the-current-state-of-ml-in-cs/</link>
-      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/the-current-state-of-ml-in-cs/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.skrasser.com/blog/2025/02/08/detecting-malware-with-machine-learning/&#34;&gt;Crowdstrike Article&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;While AI is on the rise and seems to be unstoppable, its applications to threat detection—specifically in cybersecurity—have yet to show great promise. Traditional approaches to applying machine learning to threat detection overlook some important factors. The first is the sheer amount of data required to train a reliable detection model. While there is no shortage of data in areas like memory usage, CPU usage, file changes, and other system activity, the data for successfully flagging actual malicious behavior—especially malware executions—is sparse.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

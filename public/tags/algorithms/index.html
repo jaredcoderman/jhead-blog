@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Tags | jhead.blog</title>
+<title>Algorithms | jhead.blog</title>
 <meta name="keywords" content="">
 <meta name="description" content="Cybersecurity writeups, notes, and research">
 <meta name="author" content="Jared Head">
-<link rel="canonical" href="http://localhost:1313/tags/">
+<link rel="canonical" href="http://localhost:1313/tags/algorithms/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/algorithms/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/algorithms/">
 <noscript>
     <style>
         #theme-toggle,
@@ -81,67 +81,26 @@
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>Tags</h1>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tags/">Tags</a></div>
+  <h1>
+    Algorithms
+  </h1>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="http://localhost:1313/tags/algorithms/">algorithms <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/artificial-intelligence/">artificial intelligence <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/attacks/">attacks <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/cybersecurity/">cybersecurity <sup><strong><sup>5</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/data-structures/">data structures <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/file-monitoring/">file monitoring <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/go/">go <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/initial-access/">initial access <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/malware/">malware <sup><strong><sup>3</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/mitre/">MITRE <sup><strong><sup>3</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/phishing/">phishing <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/process-monitoring/">process monitoring <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/python/">python <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/splunk/">splunk <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/strategy/">strategy <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/supply-chain/">supply chain <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/threat-detection/">threat detection <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/yara/">YARA <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Aho-Corasick Algorithm (WIP)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When building my project Process Sentinel (LINK HERE) I came across what I thought was an opportunity for optimization. The problem was essentially I have a list of chains which represent process parent-child relationships. I would compare these chains against a set of suspicious chains which would then report back if a process chain was suspicious and the severity of it. Initially I took a sort of naive approach:
+func containsExactPattern(chain []string, pattern []string) bool { if len(chain) &lt; len(pattern) { return false } for i := 0; i &lt;= len(chain)-len(pattern); i&#43;&#43; { match := true for j := 0; j &lt; len(pattern); j&#43;&#43; { if chain[i&#43;j] != pattern[j] { match = false break } } if match { return true } } return false } Here I am just doing a simple sliding window that compares a pattern–a given suspicious chain–against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering. I was curious if there was a better way to do this if I had a very large amount of patterns to check against a given chain. Enter the Aho-Corasick Algorithm, it sounds so cool and advanced I had to take a shot at understanding it. It took me a little while to understand but I learned a lot about data structures along the way.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Jared Head</footer>
+  <a class="entry-link" aria-label="post link to Aho-Corasick Algorithm (WIP)" href="http://localhost:1313/posts/aho-corasick-algo/"></a>
+</article>
     </main>
     
 <footer class="footer">
