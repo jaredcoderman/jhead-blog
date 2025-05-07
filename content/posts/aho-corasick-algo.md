@@ -64,4 +64,10 @@ func insert(root *TrieNode, pattern []string) {
 ```
 For clarity we are doing a `map[string]*TrieNode` because the string will represent the process name which will be used to access that processes node via a pointer. We then just make a **root node** and then for each pattern call `insert(root, pattern)`.
 
-Next comes the real sauce of the algorithm--**Failure Links**
+Next comes the real sauce of the algorithm
+
+### Failure Links
+
+ The beauty of the Aho-Corasick algorithm lies in each node having a **failure link**. These serve two main purpose. First, they make it so we don't have to start over if some node in the tree doesn't see the **next** process in the input. Instead of starting over we get to jump to another node somewhere else in our Trie with the same name, to see if *that* node has the next process in the input. It serves as a sort of smart backtracking approach. This is what makes it one of the most powerful string-matching algorithms out there. Its why tools like antivirus scanners, spam filters, and log monitors use it. It was not intuitive for me at first, but once understood the elegance is clear.
+
+ So let's go over the implementation of these failure links.

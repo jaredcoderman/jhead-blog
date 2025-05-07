@@ -158,7 +158,10 @@ Here I am just doing a simple sliding window that compares a pattern&ndash;a giv
 </span></span><span class="line"><span class="cl">	<span class="nx">node</span><span class="p">.</span><span class="nx">patterns</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">patterns</span><span class="p">,</span> <span class="nx">pattern</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>For clarity we are doing a <code>map[string]*TrieNode</code> because the string will represent the process name which will be used to access that processes node via a pointer. We then just make a <strong>root node</strong> and then for each pattern call <code>insert(root, pattern)</code>.</p>
-<p>Next comes the real sauce of the algorithm&ndash;<strong>Failure Links</strong></p>
+<p>Next comes the real sauce of the algorithm</p>
+<h3 id="failure-links">Failure Links<a hidden class="anchor" aria-hidden="true" href="#failure-links">#</a></h3>
+<p>The beauty of the Aho-Corasick algorithm lies in each node having a <strong>failure link</strong>. These serve two main purpose. First, they make it so we don&rsquo;t have to start over if some node in the tree doesn&rsquo;t see the <strong>next</strong> process in the input. Instead of starting over we get to jump to another node somewhere else in our Trie with the same name, to see if <em>that</em> node has the next process in the input. It serves as a sort of smart backtracking approach. This is what makes it one of the most powerful string-matching algorithms out there. Its why tools like antivirus scanners, spam filters, and log monitors use it. It was not intuitive for me at first, but once understood the elegance is clear.</p>
+<p>So let&rsquo;s go over the implementation of these failure links.</p>
 
 
   </div>
