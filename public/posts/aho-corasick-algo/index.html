@@ -174,7 +174,7 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
 </span></span><span class="line"><span class="cl">		<span class="nx">current</span> <span class="o">:=</span> <span class="nx">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">queue</span> <span class="p">=</span> <span class="nx">queue</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">process</span><span class="p">,</span> <span class="nx">child</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">root</span><span class="p">.</span><span class="nx">children</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">process</span><span class="p">,</span> <span class="nx">child</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">current</span><span class="p">.</span><span class="nx">children</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">			<span class="nx">fallback</span> <span class="o">:=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">fail</span>
 </span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">fallback</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">fallback</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">process</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">				<span class="nx">fallback</span> <span class="p">=</span> <span class="nx">fallback</span><span class="p">.</span><span class="nx">fail</span>
@@ -194,7 +194,10 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
 </span></span><span class="line"><span class="cl">		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>First we make a queue, and append to it all the children in the first layer&ndash;A breadth first search approach. Then for each child of a given node in the queue, we follow its parent&rsquo;s failure link chain until one of the links has this process name as a child. If we find it, we set the first child&rsquo;s fail to the other child node. If we don&rsquo;t, we just set it to the root. If the first child is a terminal node, we add the patterns from its fail link to its patterns. Lastly, we enqueue the first child to continue the BFS.</p>
+<h2 id="searching">Searching<a hidden class="anchor" aria-hidden="true" href="#searching">#</a></h2>
+<p>The final portion to implement is the <strong>search</strong> function. The way it works is we take in the root node and an input. We check if the current node&ndash;usually starting with the root&ndash;has the next process as a child. At each step, if the current node is a terminal node&mdash;or if any node along its failure link chain is terminal&mdash;we collect the associated patterns and add them to the matches array.</p>
+
 
   </div>
 

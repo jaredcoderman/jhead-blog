@@ -87,7 +87,7 @@ func buildFailureLinks(root *TrieNode) {
 		current := queue[0]
 		queue = queue[1:]
 
-		for process, child := range root.children {
+		for process, child := range current.children {
 			fallback := current.fail
 			for fallback != nil && fallback.children[process] == nil {
 				fallback = fallback.fail
@@ -109,3 +109,8 @@ func buildFailureLinks(root *TrieNode) {
 }
 ```
 
+First we make a queue, and append to it all the children in the first layer--A breadth first search approach. Then for each child of a given node in the queue, we follow its parent's failure link chain until one of the links has this process name as a child. If we find it, we set the first child's fail to the other child node. If we don't, we just set it to the root. If the first child is a terminal node, we add the patterns from its fail link to its patterns. Lastly, we enqueue the first child to continue the BFS.
+
+## Searching
+
+The final portion to implement is the **search** function. The way it works is we take in the root node and an input. We check if the current node--usually starting with the root--has the next process as a child. At each step, if the current node is a terminal node---or if any node along its failure link chain is terminal---we collect the associated patterns and add them to the matches array.
