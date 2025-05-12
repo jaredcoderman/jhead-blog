@@ -1,6 +1,6 @@
 ---
 title: "Aho-Corasick Algorithm"
-date: 2025-05-012
+date: 2025-05-12
 tags: ["data structures", "algorithms"]
 ---
 

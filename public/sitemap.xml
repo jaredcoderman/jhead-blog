@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/aho-corasick-algo/</loc>
-    <lastmod>2025-05-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/algorithms/</loc>
-    <lastmod>2025-05-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/data-structures/</loc>
-    <lastmod>2025-05-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-05-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-05-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/cybersecurity/</loc>
     <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -29,13 +11,22 @@
     <loc>http://localhost:1313/posts/initial-access/</loc>
     <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/mitre/</loc>
     <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/phishing/</loc>
     <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/supply-chain/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/solarwinds-hack/</loc>
@@ -92,6 +83,12 @@
     <loc>http://localhost:1313/posts/the-current-state-of-ml-in-cs/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/posts/aho-corasick-algo/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/algorithms/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/data-structures/</loc>
   </url>
 </urlset>
