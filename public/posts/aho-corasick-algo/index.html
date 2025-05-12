@@ -107,7 +107,7 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
     <h1 class="post-title entry-hint-parent">
       Aho-Corasick Algorithm (WIP)
     </h1>
-    <div class="post-meta"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Jared Head
+    <div class="post-meta"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jared Head
 
 </div>
   </header> 
@@ -195,8 +195,35 @@ Here I am just doing a simple sliding window that compares a pattern—a given s
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>First we make a queue, and append to it all the children in the first layer&ndash;A breadth first search approach. Then for each child of a given node in the queue, we follow its parent&rsquo;s failure link chain until one of the links has this process name as a child. If we find it, we set the first child&rsquo;s fail to the other child node. If we don&rsquo;t, we just set it to the root. If the first child is a terminal node, we add the patterns from its fail link to its patterns. Lastly, we enqueue the first child to continue the BFS.</p>
-<h2 id="searching">Searching<a hidden class="anchor" aria-hidden="true" href="#searching">#</a></h2>
-<p>The final portion to implement is the <strong>search</strong> function. The way it works is we take in the root node and an input. We check if the current node&ndash;usually starting with the root&ndash;has the next process as a child. At each step, if the current node is a terminal node&mdash;or if any node along its failure link chain is terminal&mdash;we collect the associated patterns and add them to the matches array.</p>
+<h3 id="searching">Searching<a hidden class="anchor" aria-hidden="true" href="#searching">#</a></h3>
+<p>The final portion to implement is the <strong>search</strong> function. The way it works is we take in the root node and an input. We check if the current node&ndash;usually starting with the root&ndash;has the next process as a child. At each step, if the current node is a terminal node&mdash;or if any node along its failure link chain is terminal&mdash;we collect the associated patterns and add them to the matches array. Finally we return the matches array and those are the <em>suspicious chains</em> that are found within our input.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">searchProcesses</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TrieNode</span><span class="p">,</span> <span class="nx">input</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">matches</span> <span class="p">[][]</span><span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">node</span> <span class="o">:=</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">proc</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">input</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">node</span> <span class="o">!=</span> <span class="nx">root</span> <span class="o">&amp;&amp;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">proc</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">node</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">fail</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">next</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">proc</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">node</span> <span class="p">=</span> <span class="nx">next</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">node</span> <span class="p">=</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">node</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">temp</span> <span class="o">!=</span> <span class="nx">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">isTerminal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">matches</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">matches</span><span class="p">,</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">patterns</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">fail</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">matches</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>This algorithm was quite cool for me to learn. It took a while to get the understanding since there are a lot of moving parts, however, I feel like I have a good handle on how it works and I am excited to learn about other problems like this. Its always easier for me to get motivated to learn about an algorithm when I can see its utility in a project I am working on. I&rsquo;ll be taking this into account when I think about what I want to do for my next projects (likely to do with networking).</p>
 
 
   </div>

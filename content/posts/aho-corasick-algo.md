@@ -1,6 +1,6 @@
 ---
-title: "Aho-Corasick Algorithm (WIP)"
-date: 2025-05-06
+title: "Aho-Corasick Algorithm"
+date: 2025-05-012
 tags: ["data structures", "algorithms"]
 ---
 
@@ -111,6 +111,38 @@ func buildFailureLinks(root *TrieNode) {
 
 First we make a queue, and append to it all the children in the first layer--A breadth first search approach. Then for each child of a given node in the queue, we follow its parent's failure link chain until one of the links has this process name as a child. If we find it, we set the first child's fail to the other child node. If we don't, we just set it to the root. If the first child is a terminal node, we add the patterns from its fail link to its patterns. Lastly, we enqueue the first child to continue the BFS.
 
-## Searching
+### Searching
 
-The final portion to implement is the **search** function. The way it works is we take in the root node and an input. We check if the current node--usually starting with the root--has the next process as a child. At each step, if the current node is a terminal node---or if any node along its failure link chain is terminal---we collect the associated patterns and add them to the matches array.
+The final portion to implement is the **search** function. The way it works is we take in the root node and an input. We check if the current node--usually starting with the root--has the next process as a child. At each step, if the current node is a terminal node---or if any node along its failure link chain is terminal---we collect the associated patterns and add them to the matches array. Finally we return the matches array and those are the *suspicious chains* that are found within our input.
+
+```go
+func searchProcesses(root *TrieNode, input []string) (matches [][]string) {
+	node := root
+
+	for _, proc := range input {
+		for node != root && node.children[proc] == nil {
+			node = node.fail
+		}
+
+		if next, ok := node.children[proc]; ok {
+			node = next
+		} else {
+			node = root
+		}
+
+		temp := node
+		for temp != root {
+			if temp.isTerminal {
+				matches = append(matches, temp.patterns...)
+			}
+			temp = temp.fail
+		}
+	}
+
+	return matches
+}
+```
+
+## Conclusion
+
+This algorithm was quite cool for me to learn. It took a while to get the understanding since there are a lot of moving parts, however, I feel like I have a good handle on how it works and I am excited to learn about other problems like this. Its always easier for me to get motivated to learn about an algorithm when I can see its utility in a project I am working on. I'll be taking this into account when I think about what I want to do for my next projects (likely to do with networking).

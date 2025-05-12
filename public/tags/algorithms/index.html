@@ -98,7 +98,7 @@
 func containsExactPattern(chain []string, pattern []string) bool { if len(chain) &lt; len(pattern) { return false } for i := 0; i &lt;= len(chain)-len(pattern); i&#43;&#43; { match := true for j := 0; j &lt; len(pattern); j&#43;&#43; { if chain[i&#43;j] != pattern[j] { match = false break } } if match { return true } } return false } Here I am just doing a simple sliding window that compares a pattern—a given suspicious chain—against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering, I was curious if there was a better way to do this if I had a very large amount of patterns to check against a given chain.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Jared Head</footer>
+  <footer class="entry-footer"><span title='2025-05-06 00:00:00 +0000 UTC'>2025-05-06</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jared Head</footer>
   <a class="entry-link" aria-label="post link to Aho-Corasick Algorithm (WIP)" href="http://localhost:1313/posts/aho-corasick-algo/"></a>
 </article>
     </main>
