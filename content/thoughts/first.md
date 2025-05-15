@@ -1,8 +1,8 @@
 ---
 title: "My Experience with Mantra"
-date: 2025-05-01
+date: 2025-05-14
 tags: ["mantra", "meditation", "yoga"]
-summary: "Discussing the effect the chant 'AUM NAMAH SHIVAYA' has had on me thus far. Along with other experiences in meditation."
+summary: "Discussing the effect the chant 'Aum Namah Shivaya' has had on me thus far. Along with other experiences in meditation."
 ---
 
 As some of you may know, I have a deep interest in both meditation and yoga—specifically yogic philosophy, or the "yogic sciences," as they’re sometimes called. I think a lot of the progress I’ve found in my life can be attributed to the tantric and yogic practices I’ve learned and developed over time, and I want to spend some time sharing one of them here.
