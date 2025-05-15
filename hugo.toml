@@ -43,9 +43,9 @@ theme = "PaperMod"
     url = "/projects/"
     weight = 2
   [[menu.main]]
-    identifier = "yoga"
-    name = "Yoga"
-    url = "/yoga/"
+    identifier = "thoughts"
+    name = "Thoughts"
+    url = "/thoughts/"
     weight = 2
 
 [markup]
