@@ -78,6 +78,11 @@
                     <span>Projects</span>
                 </a>
             </li>
+            <li>
+                <a href="http://localhost:1313/yoga/" title="Yoga">
+                    <span>Yoga</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -87,6 +92,20 @@
     Posts
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Aho-Corasick Algorithm
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When building my project Process Sentinel, I came across what I thought was an opportunity for optimization. The problem was essentially I have a list of chains which represent process parent-child relationships. I would compare these chains against a set of suspicious chains, which would then report back if a process chain was suspicious and the severity of it. Initially, I took a sort of naive approach:
+func containsExactPattern(chain []string, pattern []string) bool { if len(chain) &lt; len(pattern) { return false } for i := 0; i &lt;= len(chain)-len(pattern); i&#43;&#43; { match := true for j := 0; j &lt; len(pattern); j&#43;&#43; { if chain[i&#43;j] != pattern[j] { match = false break } } if match { return true } } return false } Here I am just doing a simple sliding window that compares a pattern—a given suspicious chain—against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering, I was curious if there was a better way to do this if I had a very large amount of patterns to check against a given chain.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-12 00:00:00 +0000 UTC'>2025-05-12</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jared Head</footer>
+  <a class="entry-link" aria-label="post link to Aho-Corasick Algorithm" href="http://localhost:1313/posts/aho-corasick-algo/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -154,20 +173,6 @@ While AI is on the rise and seems to be unstoppable, its applications to threat 
   </div>
   <footer class="entry-footer"><span title='2025-05-01 00:00:00 +0000 UTC'>2025-05-01</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Jared Head</footer>
   <a class="entry-link" aria-label="post link to The State of ML in Cybersecurity" href="http://localhost:1313/posts/the-current-state-of-ml-in-cs/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Aho-Corasick Algorithm
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When building my project Process Sentinel, I came across what I thought was an opportunity for optimization. The problem was essentially I have a list of chains which represent process parent-child relationships. I would compare these chains against a set of suspicious chains, which would then report back if a process chain was suspicious and the severity of it. Initially, I took a sort of naive approach:
-func containsExactPattern(chain []string, pattern []string) bool { if len(chain) &lt; len(pattern) { return false } for i := 0; i &lt;= len(chain)-len(pattern); i&#43;&#43; { match := true for j := 0; j &lt; len(pattern); j&#43;&#43; { if chain[i&#43;j] != pattern[j] { match = false break } } if match { return true } } return false } Here I am just doing a simple sliding window that compares a pattern—a given suspicious chain—against each process in a chain. While this absolutely works for this project and any optimization would absolutely be over-engineering, I was curious if there was a better way to do this if I had a very large amount of patterns to check against a given chain.
-...</p>
-  </div>
-  <footer class="entry-footer">5 min&nbsp;·&nbsp;Jared Head</footer>
-  <a class="entry-link" aria-label="post link to Aho-Corasick Algorithm" href="http://localhost:1313/posts/aho-corasick-algo/"></a>
 </article>
     </main>
     
