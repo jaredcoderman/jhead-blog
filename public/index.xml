@@ -6,8 +6,30 @@
     <description>Recent content on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TCP and UDP: The Internet&#39;s Backbone</title>
+      <link>http://localhost:1313/posts/tcp-udp/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tcp-udp/</guid>
+      <description>&lt;p&gt;As we know, the internet is like a giant web that connects different machines to one another. They could be mainly computers, servers, or other similar devices that have internet access. The question is though, how &lt;em&gt;exactly&lt;/em&gt; does the information get from one computer to another, and more importantly how can we trust that that information&amp;rsquo;s transit is secure and cannot be interrupted?&lt;/p&gt;
+&lt;p&gt;Some information needs to be absolutely secure, while other information just needs to be broadcasted and it is not necessary that it reaches a specific person. Think for the first case, something like email. Email &lt;em&gt;must&lt;/em&gt; be secure, because it is used for things like evidence in court, handling important proprietary documents for businesses, etc. Whereas, for the second case, take something like Livestreaming. Livestreaming is simply a &lt;em&gt;broadcast&lt;/em&gt;, there is no need for someone on the other end to get the information, or for them to get it in a neatly packaged way. There are many other kinds of cases however we will focus on these two. Secure connection, and broadcasting and their associated protocols which are TCP and UDP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What Halts Progress</title>
+      <link>http://localhost:1313/scrap/what-halts-progress/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/scrap/what-halts-progress/</guid>
+      <description>Not sure what the summary should be yet will just start writing</description>
+    </item>
+    <item>
+      <title>My Experience with Mantra</title>
+      <link>http://localhost:1313/thoughts/first/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/thoughts/first/</guid>
+      <description>Discussing the effect the chant &amp;lsquo;Aum Namah Shivaya&amp;rsquo; has had on me thus far. Along with other experiences in meditation.</description>
+    </item>
     <item>
       <title>Aho-Corasick Algorithm</title>
       <link>http://localhost:1313/posts/aho-corasick-algo/</link>
@@ -77,13 +99,6 @@
       <description>&lt;h2 id=&#34;a-brief-history&#34;&gt;A Brief History&lt;/h2&gt;
 &lt;p&gt;As cyber defenses evolved beyond file-based malware, hackers and red teamers had to develop new strategies for maintaining unauthorized access to systems. While they still needed some kind of initial foothold—through things like phishing links, stolen remote desktop credentials, or other methods—once inside, maintaining access became a challenge. Antivirus software was getting stronger, and simply dropping suspicious binaries was no longer effective.&lt;/p&gt;
 &lt;p&gt;To adapt, some hackers in the 2010s developed what is now known as a &lt;strong&gt;Living off the Land&lt;/strong&gt; (LotL) attack. This type of attack uses already trusted system tools like PowerShell, WMI, or certutil to run malicious commands, download payloads, or exfiltrate data—often without writing anything to disk. It’s hard to detect because the behavior doesn’t originate from some unknown file or process like traditional malware—it comes from legitimate processes that the system is likely already using, allowing it to blend into the background.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My Experience with Mantra</title>
-      <link>http://localhost:1313/thoughts/first/</link>
-      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/thoughts/first/</guid>
-      <description>Discussing the effect the chant &amp;lsquo;AUM NAMAH SHIVAYA&amp;rsquo; has had on me thus far. Along with other experiences in meditation.</description>
     </item>
     <item>
       <title>Simple IDS</title>
