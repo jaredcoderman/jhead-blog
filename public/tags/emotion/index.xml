@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/emotion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What Halts Progress</title>
-      <link>http://localhost:1313/thoughts/what-halts-progress/</link>
+      <link>http://localhost:1313/scrap/what-halts-progress/</link>
       <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/thoughts/what-halts-progress/</guid>
+      <guid>http://localhost:1313/scrap/what-halts-progress/</guid>
       <description>Not sure what the summary should be yet will just start writing</description>
     </item>
   </channel>

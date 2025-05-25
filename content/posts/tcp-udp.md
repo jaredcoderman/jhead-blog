@@ -4,50 +4,74 @@ date: 2025-05-24
 tags: ["network", "handshake", "security"]
 ---
 
-As we know, the internet is like a giant web that connects different machines to one another. They could be mainly computers, servers, or other similar devices that have internet access. The question is though, how *exactly* does the information get from one computer to another, and more importantly how can we trust that that information's transit is secure and cannot be interrupted?
+As we know, the internet is like a giant web that connects different machines to one another. These are mainly computers, servers, or other devices with internet access. But the question is: how *exactly* does information get from one computer to another? And more importantly, how can we trust that its transit is secure and won’t be interrupted?
 
-Some information needs to be absolutely secure, while other information just needs to be broadcasted and it is not necessary that it reaches a specific person. Think for the first case, something like email. Email *must* be secure, because it is used for things like evidence in court, handling important proprietary documents for businesses, etc. Whereas, for the second case, take something like Livestreaming. Livestreaming is simply a *broadcast*, there is no need for someone on the other end to get the information, or for them to get it in a neatly packaged way. There are many other kinds of cases however we will focus on these two. Secure connection, and broadcasting and their associated protocols which are TCP and UDP.
+Some information needs to be absolutely secure, while other information just needs to be broadcast — it’s not necessary that it reaches a specific person. For example, take email. Email *must* be secure because it’s used for things like court evidence, proprietary business documents, and other sensitive communication.
+
+Now contrast that with livestreaming. Livestreaming is just a *broadcast* — there’s no need for anyone in particular to receive the data, or for it to arrive neatly and completely.
+
+There are many other cases, but we’ll focus on these two: secure communication and general broadcasting — and the two protocols most commonly associated with them: **TCP** and **UDP**.
 
 ---
 
 ## TCP
 
-TCP stands for **Transmission Control Protocol** and it is the protocol for secure, reliable transfers of data. This reliability comes in the form of *getting* the data to the specific target, but also making sure it comes in the right order, and if any part of it goes missing, it waits for a resend until it gets that portion before it can continue. So let's dive deeper specifically into how this protocol works and the different parts of it.
+TCP stands for **Transmission Control Protocol**, and it's used for secure, reliable data transfers. This reliability means making sure the data gets to the specific destination, in the correct order, and waiting to resend any missing parts if something goes wrong along the way.
 
-To ensure its reliability, TCP uses something known as the **three-way handshake** between the **client** and the **server**. Here's how it works:
+Let’s break down how this actually works.
 
-**1. SYN** - your computer (client) says, "Hey, are you there?"
+### The Three-Way Handshake
 
-**2. SYN-ACK** - the other computer (server) says, "Yes, are you ready?"
+To ensure both sides are ready, TCP uses a process called the **three-way handshake** between the client and the server:
 
-**3. ACK** - your computer responds, "Yes, let's do this!"
+**1. SYN** – your computer (the client) says, “Hey, are you there?”  
+**2. SYN-ACK** – the other computer (the server) replies, “Yes, are you ready?”  
+**3. ACK** – your computer responds, “Yes, let’s do this!”
 
-This process ensures that both parties are ready, for a connection to be made for at least a certain amount of time, to handle the transfer of whatever the payload is. Now when that data is transferred, TCP does a few things. First it breaks the data into small chunks (*segments*) and numbers them. Sends each segment, waiting for an **ACK** as confirmation that it arrived safely before sending the next one. Then along the way **resends** any data that happens to get lost, before moving on to the next segment.
+Once that connection is established, TCP breaks the data into smaller chunks called *segments* and numbers them. Each segment is sent one by one, and the sender waits for an **ACK** (acknowledgment) that it arrived before sending the next. If a segment gets lost, it’s resent before continuing.
 
-So it's like:  
-“Page 1, got it? Yes. Page 2? Yes. Page 3? Didn’t get it—resend!”
+It’s like:  
+“Page 1, got it? Yes. Page 2? Yes. Page 3? Didn’t get it — resend!”
 
-TCP is useful for things like loading a webpage, sending emails, and downloading files. Essentially when accuracy is more important than speed, use TCP. Now what if speed is more important than accuracy?
+TCP is ideal when **accuracy matters more than speed**, like:
+- Loading a webpage  
+- Sending emails  
+- Downloading files
+
+But what if speed matters more?
 
 ---
 
 ## UDP
 
-For things like online gaming, live-streaming, zoom calls, things like that, we want to make sure we have the lowest latency possible to make it a seamless experience for the users engaging with the application. Traditionally using TCP will cause too much lag, because we need to make sure each segment gets there successfully and that just causes a lot of requests to the server and each request has a certain amount of latency so it's just not feasible to use TCP in that case. This is why UDP was created, UDP stands for **User Datagram Protocol** not that that helps you understand what it does at all, I still don't know what "datagram" means. However, that's not super important so let's dive into how UDP works differently than TCP, so that it can serve up data between clients and servers with high-speeds.
+For things like online gaming, livestreaming, and Zoom calls, we want the **lowest possible latency** to make the experience smooth and real-time. Using TCP in these situations causes too much lag, because it introduces extra steps and waiting — every segment must arrive and be acknowledged before continuing, and that’s just not efficient for fast-paced communication.
+
+This is where UDP comes in. UDP stands for **User Datagram Protocol** — not that the word “datagram” helps explain much. I still don’t really know what it means. But what matters is that UDP works very differently from TCP.
 
 ### Fire and Forget
 
-The way of thinking about UDP is that you just fire something off and forget about it. We don't really care if the information reached anyone, we just focus on sending out information so there are no connections, acknowledgements, or resending like in TCP. However, this does mean, that we can get things like weird lag going on in our video calls, or video games, so it is not without any downsides. However, it is a necessary tradeoff for our goal.
+With UDP, you just send the data and don’t wait around. There’s:
+- No connection setup  
+- No acknowledgments  
+- No resending of dropped packets  
+
+You fire the data off and forget about it. The priority is speed — even if that means dropping some information along the way.
+
+Of course, this comes with tradeoffs. You might get weird lag or missing frames in a video call or game, but that’s acceptable for the sake of responsiveness. That’s the cost of speed, and it’s often worth it.
 
 ---
 
-## Their use in Cybersecurity
+## Their Use in Cybersecurity
 
-So now that we know what they are, what are some basic ways that these protocols are used/exploited in hacking.
+Now that we know what these protocols are, how are they actually used — or exploited — in hacking?
 
 ### Ports
 
-Every TCP or UDP connection uses a **port number** — think of it like a mailing address, it tells the operating system where the packet should go to. Hackers will send off a ton of requests to every open port to check if they are running, and then if they are they will go further to see if they are vulnerable. Usually once one of these ports is hit they send back a little message when you connect called a **banner**.
+Every TCP or UDP connection uses a **port number**. Think of it like a mailing address — it tells the operating system which service the incoming packet is meant for.
+
+Hackers will often scan all ports on a machine to see which ones are open. If they find one, they’ll try to figure out what service is running behind it, and whether that service has any known vulnerabilities.
+
+When you connect to an open port, it might return a small message called a **banner**, which can give away the service and version number.
 
 Example:
 
@@ -57,17 +81,29 @@ Might return:
 
     SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.10
 
-Now the attacker will use or google known exploits for the service, in this case OpenSSH. So they might search "OpenSSH 7.2p2 CVE" (CVEs = Common Vulnerability and Exposures). To be more precise they can use version scanning with `nmap`.
+Now the attacker can look up known vulnerabilities by searching something like:
+
+    OpenSSH 7.2p2 CVE
+
+(CVE = Common Vulnerabilities and Exposures)
+
+A more precise way to fingerprint services is with version scanning, using tools like `nmap`.
 
 Example:
 
     nmap -sV target.com
 
-This gives an output like:
+This might return:
 
     22/tcp open  ssh     OpenSSH 7.2p2  
     80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
 
-The difference here is we can get the version number of OpenSSH and Apache, so if these services being used have not been updated in a while, it is likely there is a known exploit out there that they can easily find and use to exploit this port.
+Now that we know the version number of OpenSSH and Apache, an attacker can check whether those versions are out of date — and if there are any known exploits available to take advantage of them.
 
-These exploits can do a number of things, it sort of depends on the hacker's goal. They could use it as [initial access](../initial-access), to start running some code they want. They could try and crash or freeze the server, leak information, or bypass authentication. This is often a first step in a larger attack.
+These exploits can do a variety of things depending on the attacker’s goals. They might:
+- Use it as a foothold for [initial access](../initial-access)  
+- Crash or freeze the service  
+- Leak sensitive data  
+- Bypass authentication
+
+Most of the time, it’s just the beginning — the first step in a larger attack chain.
