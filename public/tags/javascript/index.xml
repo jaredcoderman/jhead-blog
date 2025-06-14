@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JavaScript on jhead.blog</title>
+    <link>http://localhost:1313/tags/javascript/</link>
+    <description>Recent content in JavaScript on jhead.blog</description>
+    <generator>Hugo -- 0.147.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The JSFireTruck Situation</title>
+      <link>http://localhost:1313/posts/js-firetruck/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/js-firetruck/</guid>
+      <description>&lt;p&gt;Recently, cybersecurity researchers have discovered a &amp;ldquo;large-scale campaign&amp;rdquo; which is compromising legitimate websites via JavaScript injection.&lt;/p&gt;
+&lt;p&gt;These malicious injections are being obfuscated using a humourously named service &lt;a href=&#34;https://jsfuck.com/&#34;&gt;JSFuck&lt;/a&gt;, which has since been renamed to JSFireTruck by security researchers owing to the profanity.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

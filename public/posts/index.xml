@@ -57,6 +57,15 @@
       <description>&lt;p&gt;On March 26, 2020, a hacker group identified by Microsoft as &lt;strong&gt;Nobelium&lt;/strong&gt; launched what is widely considered the biggest supply chain hack of the 21st century. Known as the &lt;strong&gt;SolarWinds Hack&lt;/strong&gt;, this event wasn’t significant because it affected a single company—it was significant because it compromised software used by thousands of organizations, including 6 U.S. federal agencies. The attackers accessed sensitive internal communications, email systems, and identity systems, potentially for months without detection.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>The JSFireTruck Situation</title>
+      <link>http://localhost:1313/posts/js-firetruck/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/js-firetruck/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Recently, cybersecurity researchers discovered a large-scale campaign compromising legitimate websites via JavaScript injection — over 269,000 in just the last month.&lt;/p&gt;
+&lt;p&gt;These malicious injections are obfuscated using a humorously named service called &lt;a href=&#34;https://jsfuck.com/&#34;&gt;JSFuck&lt;/a&gt;, which has since been renamed &amp;ldquo;JSFireTruck&amp;rdquo; by security researchers to avoid profanity. The service uses just six characters: &lt;code&gt;[] () ! +&lt;/code&gt; to write and execute JavaScript code. This is made possible through JavaScript’s loose type coercion rules and strange expression evaluation. Surprisingly, it&amp;rsquo;s just normal JavaScript — no special library required — and it can even run on Node.js.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Lateral Movement</title>
       <link>http://localhost:1313/posts/lateral-movement/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
