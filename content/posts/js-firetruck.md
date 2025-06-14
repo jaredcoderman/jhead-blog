@@ -1,6 +1,6 @@
 ---
 title: "The JSFireTruck Situation"
-date: 2025-05-04
+date: 2025-06-14
 tags: ["JavaScript", "injection", "malware"]
 ---
 
