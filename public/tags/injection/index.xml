@@ -6,15 +6,16 @@
     <description>Recent content in Injection on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/injection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The JSFireTruck Situation</title>
       <link>http://localhost:1313/posts/js-firetruck/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/js-firetruck/</guid>
-      <description>&lt;p&gt;Recently, cybersecurity researchers have discovered a &amp;ldquo;large-scale campaign&amp;rdquo; which is compromising legitimate websites via JavaScript injection.&lt;/p&gt;
-&lt;p&gt;These malicious injections are being obfuscated using a humourously named service &lt;a href=&#34;https://jsfuck.com/&#34;&gt;JSFuck&lt;/a&gt;, which has since been renamed to JSFireTruck by security researchers owing to the profanity.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Recently, cybersecurity researchers discovered a large-scale campaign compromising legitimate websites via JavaScript injection — over 269,000 in just the last month.&lt;/p&gt;
+&lt;p&gt;These malicious injections are obfuscated using a humorously named service called &lt;a href=&#34;https://jsfuck.com/&#34;&gt;JSFuck&lt;/a&gt;, which has since been renamed &amp;ldquo;JSFireTruck&amp;rdquo; by security researchers to avoid profanity. The service uses just six characters: &lt;code&gt;[] () ! +&lt;/code&gt; to write and execute JavaScript code. This is made possible through JavaScript’s loose type coercion rules and strange expression evaluation. Surprisingly, it&amp;rsquo;s just normal JavaScript — no special library required — and it can even run on Node.js.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
