@@ -5,13 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>The JSFireTruck Situation | jhead.blog</title>
-<meta name="keywords" content="JavaScript, injection, malware">
-<meta name="description" content="Background
-Recently, cybersecurity researchers discovered a large-scale campaign compromising legitimate websites via JavaScript injection — over 269,000 in just the last month.
-These malicious injections are obfuscated using a humorously named service called JSFuck, which has since been renamed &ldquo;JSFireTruck&rdquo; by security researchers to avoid profanity. The service uses just six characters: [] () ! &#43; to write and execute JavaScript code. This is made possible through JavaScript’s loose type coercion rules and strange expression evaluation. Surprisingly, it&rsquo;s just normal JavaScript — no special library required — and it can even run on Node.js.">
+<title>Device Code Phishing | jhead.blog</title>
+<meta name="keywords" content="phishing, initial access, cybersecurity, MITRE">
+<meta name="description" content="In February of this year (2025), Microsoft discovered cyberattacks being launched by a group they call Storm-2372, which is suspected to be associated with Russian interests. The attacks have been ongoing since August 2024 and have targeted governments, NGOs, and a wide range of industries across multiple regions. These attacks use a phishing technique called “device code phishing,” in which the user is brought to a legitimate Microsoft website to log in—but their access and refresh tokens are still harvested.">
 <meta name="author" content="Jared Head">
-<link rel="canonical" href="http://localhost:1313/posts/js-firetruck/">
+<link rel="canonical" href="http://localhost:1313/posts/device-code-phishing/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -20,7 +18,7 @@ These malicious injections are obfuscated using a humorously named service calle
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/js-firetruck/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/device-code-phishing/">
 <noscript>
     <style>
         #theme-toggle,
@@ -93,45 +91,45 @@ These malicious injections are obfuscated using a humorously named service calle
   <header class="post-header">
     <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
-      The JSFireTruck Situation
+      Device Code Phishing
     </h1>
-    <div class="post-meta"><span title='2025-06-14 00:00:00 +0000 UTC'>2025-06-14</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Jared Head
+    <div class="post-meta"><span title='2025-06-15 00:00:00 +0000 UTC'>2025-06-15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Jared Head
 
 </div>
   </header> 
-  <div class="post-content"><h2 id="background">Background<a hidden class="anchor" aria-hidden="true" href="#background">#</a></h2>
-<p>Recently, cybersecurity researchers discovered a large-scale campaign compromising legitimate websites via JavaScript injection — over 269,000 in just the last month.</p>
-<p>These malicious injections are obfuscated using a humorously named service called <a href="https://jsfuck.com/">JSFuck</a>, which has since been renamed &ldquo;JSFireTruck&rdquo; by security researchers to avoid profanity. The service uses just six characters: <code>[] () ! +</code> to write and execute JavaScript code. This is made possible through JavaScript’s loose type coercion rules and strange expression evaluation. Surprisingly, it&rsquo;s just normal JavaScript — no special library required — and it can even run on Node.js.</p>
-<p>The obfuscation mainly hinders analysis and slows down response. However, researchers discovered that the injected code checks the website’s <code>document.referrer</code>, meaning the visitor must have come from a search engine rather than typing the URL directly. If the referrer is one of several search engines, the code modifies a random DOM element to become an <code>&lt;iframe&gt;</code> that embeds a malicious website.</p>
-<p><img alt="Deobfuscated JS" loading="lazy" src="/jsfuck-pic.png"></p>
-<p>The malicious URLs victims are redirected to can deliver malware, exploits, traffic monetization mechanisms, and malvertising.</p>
+  <div class="post-content"><p>In February of this year (2025), Microsoft discovered cyberattacks being launched by a group they call Storm-2372, which is suspected to be associated with Russian interests. The attacks have been ongoing since August 2024 and have targeted governments, NGOs, and a wide range of industries across multiple regions. These attacks use a phishing technique called “device code phishing,” in which the user is brought to a legitimate Microsoft website to log in—but their access and refresh tokens are still harvested.</p>
 <hr>
-<h2 id="moving-forward">Moving Forward<a hidden class="anchor" aria-hidden="true" href="#moving-forward">#</a></h2>
-<p>It&rsquo;s not yet clear exactly how the code is being injected. It&rsquo;s surprising that the published write-ups focus mostly on the obfuscation technique (JSFireTruck) without addressing the initial infection vector.</p>
-<p>Injections like this typically happen through cross-site scripting (XSS) vulnerabilities, often via insecure or outdated WordPress plugins. Given that WordPress powers about 43.5% of the web, it&rsquo;s likely the attackers discovered a vulnerability in a widely used plugin and are exploiting it at scale. This is also supported by the fact that over 50,000 sites were reportedly infected in a single day.</p>
-<p>This theory could be investigated by checking the infected sites with a service like <a href="https://builtwith.com/">BuiltWith</a>, but I haven’t found a compiled list of affected websites in Palo Alto&rsquo;s telemetry data. It&rsquo;s also possible the situation is more complex — if it were a simple plugin flaw, it likely would have been included in their <a href="https://unit42.paloaltonetworks.com/malicious-javascript-using-jsfiretruck-as-obfuscation/">write-up</a>.</p>
-<p>When I asked ChatGPT how the injection could have occurred, it offered a few additional possibilities. Besides plugin vulnerabilities, the attackers might have compromised a commonly used JavaScript library or content delivery network (CDN). If more details become available, I’ll be sure to update this article.</p>
+<h3 id="how-it-works">How it Works<a hidden class="anchor" aria-hidden="true" href="#how-it-works">#</a></h3>
+<p>Like a typical phishing operation, the attacker begins by building rapport with a specific individual, often pretending to be an important person in their field. After exchanging a few messages, they invite the target to a Microsoft Teams meeting.</p>
+<p><img alt="Rapport example" loading="lazy" src="/device-code-phish.png"></p>
+<p>The link sent is completely legitimate, and the user logs in as usual. The twist is that the user is unknowingly authenticating a <strong>malicious application</strong> through Microsoft’s <strong>legitimate OAuth 2.0 device code flow</strong>. We’re so used to allowing apps to access our data that we may unconsciously click &ldquo;Allow&rdquo; without reading the permissions. However, in this case, the user is authorizing the threat actor’s app, granting them access to the account—such as reading emails, accessing files, or impersonating the user—so long as the refresh token remains valid.</p>
+<p>Below is a diagram representing how the operation works.</p>
+<p><img alt="flow diagram" loading="lazy" src="/flow-diagram.png"></p>
 <hr>
+<h3 id="the-danger">The Danger<a hidden class="anchor" aria-hidden="true" href="#the-danger">#</a></h3>
+<p>What makes this form of initial access clever is that there are none of the usual indicators we look for in phishing attacks. The login page really does say <code>https://microsoft.com/...</code>, and the Teams meeting invite looks authentic.</p>
+<p>Even if you&rsquo;re a security-conscious user who uses a password manager with strong passwords and has multi-factor authentication (MFA) enabled, those defenses won&rsquo;t protect you here. In some ways, the access token that the attacker obtains is even more powerful than a password. It bypasses both the password and the MFA step, while still granting the same privileges that you have.</p>
+<p>Revoking access is relatively simple, but most users have never needed to remove app permissions from their accounts—let alone monitor token activity.</p>
+<p>Once an account is compromised, the attacker can move laterally within the network and easily pose as a legitimate user to phish others inside the organization.</p>
+<h4 id="sources">Sources<a hidden class="anchor" aria-hidden="true" href="#sources">#</a></h4>
+<p><a href="https://www.microsoft.com/en-us/security/blog/2025/02/13/storm-2372-conducts-device-code-phishing-campaign/">Microsoft Write-up</a></p>
+<p><a href="https://thehackernews.com/2025/02/microsoft-russian-linked-hackers-using.html">The HackerNews Article</a></p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/javascript/">JavaScript</a></li>
-      <li><a href="http://localhost:1313/tags/injection/">Injection</a></li>
-      <li><a href="http://localhost:1313/tags/malware/">Malware</a></li>
+      <li><a href="http://localhost:1313/tags/phishing/">Phishing</a></li>
+      <li><a href="http://localhost:1313/tags/initial-access/">Initial Access</a></li>
+      <li><a href="http://localhost:1313/tags/cybersecurity/">Cybersecurity</a></li>
+      <li><a href="http://localhost:1313/tags/mitre/">MITRE</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/tcp-udp/">
+  <a class="prev" href="http://localhost:1313/posts/js-firetruck/">
     <span class="title">« Prev</span>
     <br>
-    <span>TCP and UDP: The Internet&#39;s Backbone</span>
-  </a>
-  <a class="next" href="http://localhost:1313/posts/device-code-phishing/">
-    <span class="title">Next »</span>
-    <br>
-    <span>Device Code Phishing</span>
+    <span>The JSFireTruck Situation</span>
   </a>
 </nav>
 
