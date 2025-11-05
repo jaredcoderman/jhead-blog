@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Simple IDS | jhead.blog</title>
-<meta name="keywords" content="python, splunk, file monitoring">
-<meta name="description" content="A Python-based intrusion detection system that monitors file events and forwards logs to Splunk.">
+<title>Hometown Marketplace | jhead.blog</title>
+<meta name="keywords" content="react-native, expo, firebase, stripe, e-commerce, mobile, typescript">
+<meta name="description" content="A mobile-first local marketplace platform connecting buyers with artisans and small businesses in their community. Built with React Native, Firebase, and Stripe for a seamless farmers market experience, always open.">
 <meta name="author" content="Jared Head">
-<link rel="canonical" href="http://localhost:1313/projects/ids/">
+<link rel="canonical" href="http://localhost:1313/projects/hometown-marketplace/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/ids/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/hometown-marketplace/">
 <noscript>
     <style>
         #theme-toggle,
@@ -91,67 +91,117 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/projects/">Projects</a></div>
     <h1 class="post-title entry-hint-parent">
-      Simple IDS
+      Hometown Marketplace
     </h1>
-    <div class="post-meta"><span title='2025-05-01 00:00:00 +0000 UTC'>2025-05-01</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Jared Head
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>2025-01-01</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Jared Head
 
 </div>
   </header> 
-  <div class="post-content"><p><img alt="Last Commit" loading="lazy" src="https://img.shields.io/github/last-commit/jaredcoderman/Simple-IDS"></p>
-<p>This project is a lightweight intrusion detection system (IDS) written in Python. It monitors directories for file events and logs any suspicious activity. The goal is to provide a simple, extensible foundation for learning how host-based detection works.</p>
+  <div class="post-content"><p><img alt="Last Commit" loading="lazy" src="https://img.shields.io/github/last-commit/jaredcoderman/hometown-marketplace-expo"></p>
+<p><code>Hometown Marketplace</code> is a cross-platform mobile marketplace that brings the farmers market experience to your phone. Built with React Native and Expo, it connects local buyers with artisans, makers, and small businesses in their community through location-based discovery, secure payments, and real-time messaging.</p>
 <h3 id="key-features">Key Features<a hidden class="anchor" aria-hidden="true" href="#key-features">#</a></h3>
 <ul>
-<li>Uses <a href="https://github.com/gorakhargosh/watchdog"><code>watchdog</code></a> to track file system events (create, modify, delete, move)</li>
-<li>Logs event details with timestamps, paths, and event types</li>
-<li>Supports recursive monitoring of critical directories</li>
-<li>Forwards log data to <a href="https://www.splunk.com/">Splunk</a> via a file or HTTP input for real-time analysis</li>
+<li><strong>📍 Location-Based Discovery</strong>: Find sellers and products near you using geolocation and geospatial queries</li>
+<li><strong>💳 Stripe Payment Processing</strong>: Full Stripe Connect integration with secure checkout sessions and automated seller payouts</li>
+<li><strong>💰 Subscription Tiers</strong>: Community (free) and Active ($5/month) subscription plans with automated tier management</li>
+<li><strong>🛍️ Dual Mode Interface</strong>: Sellers can seamlessly switch between selling and buying modes within the same app</li>
+<li><strong>💌 Complete Order System</strong>: Order management with shipping and pickup options, real-time status tracking</li>
+<li><strong>📧 Email Automation</strong>: Transactional emails for orders, payments, and buyer/seller communications via Resend</li>
+<li><strong>💬 Real-Time Messaging</strong>: In-app messaging system between buyers and sellers</li>
+<li><strong>❤️ Favorites System</strong>: Save products and sellers for easy access</li>
+<li><strong>⭐ Ratings &amp; Reviews</strong>: Build trust through community feedback and ratings</li>
+<li><strong>📊 Seller Analytics</strong>: Business performance tracking and order management dashboards</li>
 </ul>
 <h3 id="why-i-built-it">Why I Built It<a hidden class="anchor" aria-hidden="true" href="#why-i-built-it">#</a></h3>
-<p>This project was inspired by a desire to better understand how host-based monitoring tools work under the hood. While enterprise solutions are more comprehensive, this system shows how file events can be tracked and logged with minimal overhead. Integrating with Splunk allowed for easy log visualization and alerting.</p>
-<h3 id="example-use-case">Example Use Case<a hidden class="anchor" aria-hidden="true" href="#example-use-case">#</a></h3>
-<p>You can use this IDS to monitor sensitive directories like:</p>
+<p>Hometown Marketplace was inspired by my mom, who handcrafts natural soaps and sells them at local farmers markets every weekend. Watching her connect with customers and build community made me realize that farmers markets aren&rsquo;t just about transactions—they&rsquo;re about relationships, supporting local artisans, and strengthening communities.</p>
+<p>But farmers markets only happen once a week. I wanted to create a platform that brings that same sense of community, discovery, and local connection to every day, making it easier for local artisans to reach customers and for buyers to discover amazing products in their neighborhood.</p>
+<p>This project gave me the opportunity to work with modern mobile development, payment processing, real-time databases, and building a full-stack application that solves a real problem for real people.</p>
+<h3 id="architecture-highlights">Architecture Highlights<a hidden class="anchor" aria-hidden="true" href="#architecture-highlights">#</a></h3>
+<p>The app follows a mobile-first, serverless architecture:</p>
 <ul>
-<li><code>C:\Windows\System32</code></li>
-<li><code>/etc/</code></li>
-<li>Project directories with production config files</li>
+<li><strong>Client</strong>: React Native app with Expo Router for cross-platform deployment (iOS, Android, Web)</li>
+<li><strong>Real-Time Database</strong>: Cloud Firestore with security rules and real-time sync</li>
+<li><strong>Serverless Backend</strong>: Firebase Cloud Functions (2nd Gen) for payment processing, email delivery, and webhook handling</li>
+<li><strong>Storage</strong>: Firebase Cloud Storage for product images and user avatars</li>
+<li><strong>Authentication</strong>: Firebase Auth with email/password and email verification</li>
+<li><strong>Payments</strong>: Stripe Connect for marketplace payments with automated seller payouts</li>
+<li><strong>Email</strong>: Resend for transactional email delivery</li>
 </ul>
-<p>It will flag unexpected file changes, deletions, or unauthorized modifications.</p>
 <h3 id="tech-stack">Tech Stack<a hidden class="anchor" aria-hidden="true" href="#tech-stack">#</a></h3>
 <ul>
-<li><strong>Python 3</strong></li>
-<li><strong>Watchdog</strong> for event detection</li>
-<li><strong>Splunk Universal Forwarder</strong> (or HTTP Event Collector)</li>
+<li>
+<p><strong>Frontend</strong>:</p>
+<ul>
+<li>React Native 0.81.5 with Expo Router</li>
+<li>TypeScript for type safety</li>
+<li>React Context API for state management</li>
+<li>Expo SDK 54 for cross-platform capabilities</li>
 </ul>
+</li>
+<li>
+<p><strong>Backend &amp; Infrastructure</strong>:</p>
+<ul>
+<li>Firebase Authentication</li>
+<li>Cloud Firestore (real-time database)</li>
+<li>Firebase Cloud Storage</li>
+<li>Firebase Cloud Functions (2nd Gen, Node.js 22)</li>
+<li>Stripe Connect API</li>
+<li>Resend API</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Libraries</strong>:</p>
+<ul>
+<li><code>expo-location</code> for geolocation services</li>
+<li><code>geofire-common</code> for geospatial queries</li>
+<li><code>stripe</code> (Node.js SDK) for payment processing</li>
+<li><code>expo-image-picker</code> for product image management</li>
+<li><code>react-hook-form</code> for form validation</li>
+</ul>
+</li>
+</ul>
+<h3 id="code-highlights">Code Highlights<a hidden class="anchor" aria-hidden="true" href="#code-highlights">#</a></h3>
+<p><strong>Subscription Management (<code>functions/src/index.ts</code>)</strong><br>
+Serverless functions handle Stripe subscription creation, cancellation, and webhook processing. Includes automated tier management and subscription status tracking.</p>
+<p><strong>Location-Based Seller Discovery (<code>services/seller.service.ts</code>)</strong><br>
+Geospatial queries using Firestore and geohashing to find sellers within a specified radius, enabling location-based product discovery.</p>
+<p><strong>Stripe Connect Integration (<code>functions/src/index.ts</code>)</strong><br>
+Complete marketplace payment flow with Stripe Connect: seller onboarding, checkout session creation, payment processing, and automated payouts to seller accounts.</p>
+<p><strong>Real-Time Order System</strong><br>
+Webhook-driven order creation and status updates with real-time Firestore sync, ensuring buyers and sellers always see current order status.</p>
 <h3 id="future-improvements">Future Improvements<a hidden class="anchor" aria-hidden="true" href="#future-improvements">#</a></h3>
 <ul>
-<li>Add support for email or webhook alerts</li>
-<li>Track user/process responsible for each event (requires deeper OS integration)</li>
-<li>Hash comparison for file integrity monitoring (like a simplified Tripwire)</li>
+<li>Push notifications for mobile apps</li>
+<li>Advanced search and filtering capabilities</li>
+<li>Seller verification badges for trusted artisans</li>
+<li>Multi-language support</li>
+<li>Subscription upgrade/downgrade flow improvements</li>
+<li>Analytics dashboard enhancements</li>
 </ul>
-<h2 id="source-code--demo">Source Code &amp; Demo<a hidden class="anchor" aria-hidden="true" href="#source-code--demo">#</a></h2>
-<p><a href="https://www.youtube.com/watch?v=qe-RiYsNDZ4">Demo</a>
-<a href="https://github.com/jaredcoderman/Simple-IDS">Repository</a></p>
-<hr>
+<h3 id="live-demo">Live Demo<a hidden class="anchor" aria-hidden="true" href="#live-demo">#</a></h3>
+<p>Visit the live web app: <strong><a href="https://hometown-marketplace.com">hometown-marketplace.com</a></strong></p>
+<p><em>Note: While optimized for mobile, the app is fully responsive and works beautifully on desktop too.</em></p>
+<h3 id="source-code">Source Code<a hidden class="anchor" aria-hidden="true" href="#source-code">#</a></h3>
+<p><a href="https://github.com/jaredcoderman/hometown-marketplace-expo">Repository</a></p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
-      <li><a href="http://localhost:1313/tags/splunk/">Splunk</a></li>
-      <li><a href="http://localhost:1313/tags/file-monitoring/">File Monitoring</a></li>
+      <li><a href="http://localhost:1313/tags/react-native/">React-Native</a></li>
+      <li><a href="http://localhost:1313/tags/expo/">Expo</a></li>
+      <li><a href="http://localhost:1313/tags/firebase/">Firebase</a></li>
+      <li><a href="http://localhost:1313/tags/stripe/">Stripe</a></li>
+      <li><a href="http://localhost:1313/tags/e-commerce/">E-Commerce</a></li>
+      <li><a href="http://localhost:1313/tags/mobile/">Mobile</a></li>
+      <li><a href="http://localhost:1313/tags/typescript/">Typescript</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/projects/hometown-marketplace/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>Hometown Marketplace</span>
-  </a>
-  <a class="next" href="http://localhost:1313/projects/process-sentinel/">
+  <a class="next" href="http://localhost:1313/projects/ids/">
     <span class="title">Next »</span>
     <br>
-    <span>Process Sentinel (WIP)</span>
+    <span>Simple IDS</span>
   </a>
 </nav>
 

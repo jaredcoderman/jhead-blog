@@ -6,8 +6,15 @@
     <description>Recent content in Phishing on jhead.blog</description>
     <generator>Hugo -- 0.147.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Device Code Phishing</title>
+      <link>http://localhost:1313/posts/device-code-phishing/</link>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/device-code-phishing/</guid>
+      <description>&lt;p&gt;In February of this year (2025), Microsoft discovered cyberattacks being launched by a group they call Storm-2372, which is suspected to be associated with Russian interests. The attacks have been ongoing since August 2024 and have targeted governments, NGOs, and a wide range of industries across multiple regions. These attacks use a phishing technique called “device code phishing,” in which the user is brought to a legitimate Microsoft website to log in—but their access and refresh tokens are still harvested.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Initial Access: Spearphishing Example</title>
       <link>http://localhost:1313/posts/initial-access/</link>

@@ -131,5 +131,12 @@
       <description>&lt;p&gt;&lt;a href=&#34;https://www.skrasser.com/blog/2025/02/08/detecting-malware-with-machine-learning/&#34;&gt;Crowdstrike Article&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;While AI is on the rise and seems to be unstoppable, its applications to threat detection—specifically in cybersecurity—have yet to show great promise. Traditional approaches to applying machine learning to threat detection overlook some important factors. The first is the sheer amount of data required to train a reliable detection model. While there is no shortage of data in areas like memory usage, CPU usage, file changes, and other system activity, the data for successfully flagging actual malicious behavior—especially malware executions—is sparse.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Hometown Marketplace</title>
+      <link>http://localhost:1313/projects/hometown-marketplace/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/hometown-marketplace/</guid>
+      <description>A mobile-first local marketplace platform connecting buyers with artisans and small businesses in their community. Built with React Native, Firebase, and Stripe for a seamless farmers market experience, always open.</description>
+    </item>
   </channel>
 </rss>

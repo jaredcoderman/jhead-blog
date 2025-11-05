@@ -22,5 +22,12 @@
       <guid>http://localhost:1313/projects/ids/</guid>
       <description>A Python-based intrusion detection system that monitors file events and forwards logs to Splunk.</description>
     </item>
+    <item>
+      <title>Hometown Marketplace</title>
+      <link>http://localhost:1313/projects/hometown-marketplace/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/hometown-marketplace/</guid>
+      <description>A mobile-first local marketplace platform connecting buyers with artisans and small businesses in their community. Built with React Native, Firebase, and Stripe for a seamless farmers market experience, always open.</description>
+    </item>
   </channel>
 </rss>
