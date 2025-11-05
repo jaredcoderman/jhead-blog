@@ -1,6 +1,6 @@
 ---
 title: "Hometown Marketplace"
-date: 2025-01-01
+date: 2025-11-05
 tags: ["react-native", "expo", "firebase", "stripe", "e-commerce", "mobile", "typescript"]
 summary: "A mobile-first local marketplace platform connecting buyers with artisans and small businesses in their community. Built with React Native, Firebase, and Stripe for a seamless farmers market experience, always open."
 ---
